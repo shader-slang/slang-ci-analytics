@@ -14,6 +14,13 @@
   th, td { border: 1px solid #dee2e6; padding: 8px; text-align: left; }
   th { background: #f8f9fa; }
   .chart-container { position: relative; width: 100%; max-width: 1200px; margin: 20px 0; }
+  .chart-section { margin-bottom: 30px; }
+  .chart-section h2 { display: flex; align-items: center; gap: 8px; }
+  .chart-section h2 a.anchor { color: #adb5bd; text-decoration: none; font-size: 0.7em; visibility: hidden; }
+  .chart-section:hover h2 a.anchor { visibility: visible; }
+  .chart-section h2 a.anchor:hover { color: #0d6efd; }
+  .download-btn { font-size: 12px; color: #6c757d; cursor: pointer; border: 1px solid #dee2e6; background: white; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+  .download-btn:hover { background: #f8f9fa; color: #333; }
   .stat-card { display: inline-block; background: #f8f9fa; border-radius: 8px; padding: 15px 25px; margin: 5px; text-align: center; }
   .stat-card .value { font-size: 2em; font-weight: bold; color: #212529; }
   .stat-card .label { font-size: 0.9em; color: #6c757d; }
@@ -37,60 +44,113 @@
   </select>
 </div>
 
-<h2>CI Turnaround Time (minutes)</h2>
+<div class="chart-section" id="turnaround">
+  <h2>CI Turnaround Time (minutes) <a class="anchor" href="#turnaround">#</a>
+  <button class="download-btn" onclick="downloadChart('turnaround_canvas')">PNG</button></h2>
 <p style="color:#6c757d;font-size:0.9em">Main CI workflow only. Time from workflow trigger to last job completed per run. Speed of light = max(build+test) across platforms, assuming full parallelization.</p>
-<div class="chart-container"><canvas id="turnaround"></canvas></div>
+  <div class="chart-container"><canvas id="turnaround_canvas"></canvas></div>
+</div>
 
-<h2>Active PRs per Day</h2>
-<div class="chart-container"><canvas id="prsPerDay"></canvas></div>
+<div class="chart-section" id="prsPerDay">
+  <h2>Active PRs per Day <a class="anchor" href="#prsPerDay">#</a>
+  <button class="download-btn" onclick="downloadChart('prsPerDay_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="prsPerDay_canvas"></canvas></div>
+</div>
 
-<h2>Build Duration by OS (minutes)</h2>
+<div class="chart-section" id="buildTestWait">
+  <h2>Build and Test Wait Times (minutes) <a class="anchor" href="#buildTestWait">#</a>
+  <button class="download-btn" onclick="downloadChart('buildTestWait_canvas')">PNG</button></h2>
+<p style="color:#6c757d;font-size:0.9em">Build wait: run trigger to first build started. Test wait: last build completed to first test started (worst platform).</p>
+  <div class="chart-container"><canvas id="buildTestWait_canvas"></canvas></div>
+</div>
+
+<div class="chart-section" id="buildByOs">
+  <h2>Build Duration by OS (minutes) <a class="anchor" href="#buildByOs">#</a>
+  <button class="download-btn" onclick="downloadChart('buildByOs_canvas')">PNG</button></h2>
 <p style="color:#6c757d;font-size:0.9em">Average build job duration per day, CI workflow only.</p>
-<div class="chart-container"><canvas id="buildByOs"></canvas></div>
+  <div class="chart-container"><canvas id="buildByOs_canvas"></canvas></div>
+</div>
 
-<h2>Test Duration by OS (minutes)</h2>
+<div class="chart-section" id="testByOs">
+  <h2>Test Duration by OS (minutes) <a class="anchor" href="#testByOs">#</a>
+  <button class="download-btn" onclick="downloadChart('testByOs_canvas')">PNG</button></h2>
 <p style="color:#6c757d;font-size:0.9em">Average test job duration per day, CI workflow only.</p>
-<div class="chart-container"><canvas id="testByOs"></canvas></div>
+  <div class="chart-container"><canvas id="testByOs_canvas"></canvas></div>
+</div>
 
-<h2>Jobs per Day</h2>
-<div class="chart-container"><canvas id="jobsPerDay"></canvas></div>
+<div class="chart-section" id="jobsPerDay">
+  <h2>Jobs per Day <a class="anchor" href="#jobsPerDay">#</a>
+  <button class="download-btn" onclick="downloadChart('jobsPerDay_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="jobsPerDay_canvas"></canvas></div>
+</div>
 
-<h2>Workflow Runs per Day</h2>
-<div class="chart-container"><canvas id="runsPerDay"></canvas></div>
+<div class="chart-section" id="runsPerDay">
+  <h2>Workflow Runs per Day <a class="anchor" href="#runsPerDay">#</a>
+  <button class="download-btn" onclick="downloadChart('runsPerDay_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="runsPerDay_canvas"></canvas></div>
+</div>
 
-<h2>Average Job Duration (minutes)</h2>
-<div class="chart-container"><canvas id="avgDuration"></canvas></div>
+<div class="chart-section" id="avgDuration">
+  <h2>Average Job Duration (minutes) <a class="anchor" href="#avgDuration">#</a>
+  <button class="download-btn" onclick="downloadChart('avgDuration_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="avgDuration_canvas"></canvas></div>
+</div>
 
-<h2>Average Queue Wait Time (minutes)</h2>
-<div class="chart-container"><canvas id="avgQueue"></canvas></div>
+<div class="chart-section" id="avgQueue">
+  <h2>Average Queue Wait Time (minutes) <a class="anchor" href="#avgQueue">#</a>
+  <button class="download-btn" onclick="downloadChart('avgQueue_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="avgQueue_canvas"></canvas></div>
+</div>
 
-<h2>Failure Rate (%)</h2>
-<div class="chart-container"><canvas id="failureRate"></canvas></div>
+<div class="chart-section" id="failureRate">
+  <h2>Failure Rate (%) <a class="anchor" href="#failureRate">#</a>
+  <button class="download-btn" onclick="downloadChart('failureRate_canvas')">PNG</button></h2>
+  <div class="chart-container"><canvas id="failureRate_canvas"></canvas></div>
+</div>
 
-<h2>Jobs by Runner Group</h2>
-<div class="chart-container" style="max-width:800px"><canvas id="byGroup"></canvas></div>
+<div class="chart-section" id="byGroup">
+  <h2>Jobs by Runner Group <a class="anchor" href="#byGroup">#</a>
+  <button class="download-btn" onclick="downloadChart('byGroup_canvas')">PNG</button></h2>
+  <div class="chart-container" style="max-width:800px"><canvas id="byGroup_canvas"></canvas></div>
+</div>
 
-<h2>Jobs by Event Type</h2>
-<div class="chart-container" style="max-width:500px"><canvas id="byEvent"></canvas></div>
+<div class="chart-section" id="byEvent">
+  <h2>Jobs by Event Type <a class="anchor" href="#byEvent">#</a>
+  <button class="download-btn" onclick="downloadChart('byEvent_canvas')">PNG</button></h2>
+  <div class="chart-container" style="max-width:500px"><canvas id="byEvent_canvas"></canvas></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-const allLabels = ["2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-01-31", "2026-02-01", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-14", "2026-02-15", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-23", "2026-02-24"];
-const allSuccess = [1220, 709, 880, 1465, 1327, 265, 95, 1078, 1292, 1100, 1209, 982, 124, 94, 788, 1388, 1884, 2159, 1106, 249, 58, 776, 801, 913, 1196, 1025, 154, 2012, 1888];
-const allFailure = [14, 47, 54, 106, 94, 14, 9, 41, 57, 45, 122, 100, 26, 55, 74, 74, 85, 108, 95, 11, 6, 59, 37, 73, 77, 79, 10, 180, 173];
-const allCancelled = [9, 57, 29, 200, 150, 35, 24, 95, 223, 156, 274, 299, 26, 42, 112, 161, 208, 149, 51, 12, 0, 99, 56, 85, 95, 56, 0, 226, 276];
-const allRuns = [54, 36, 42, 69, 64, 15, 4, 49, 67, 53, 70, 61, 8, 10, 38, 66, 84, 102, 58, 11, 2, 35, 30, 41, 56, 50, 9, 97, 113];
-const allPRs = [24, 19, 20, 22, 23, 7, 2, 21, 24, 21, 21, 15, 2, 1, 13, 29, 33, 36, 26, 7, 2, 16, 19, 18, 21, 19, 4, 47, 39];
-const allDuration = [9.7, 10.1, 9.8, 11.9, 10.0, 9.3, 8.7, 9.3, 8.9, 9.3, 8.4, 10.3, 8.9, 7.8, 9.1, 9.4, 9.2, 7.9, 7.9, 8.4, 7.8, 8.2, 7.8, 7.9, 8.1, 8.4, 8.1, 7.6, 7.6];
-const allMaDuration = [9.7, 9.9, 9.9, 10.4, 10.3, 10.1, 9.9, 9.9, 9.7, 9.6, 9.1, 9.2, 9.1, 9.0, 9.0, 9.0, 9.0, 8.9, 8.6, 8.5, 8.5, 8.4, 8.2, 8.0, 8.0, 8.1, 8.0, 8.0, 7.9];
-const allQueue = [48.6, 4.5, 4.5, 4.6, 6.1, 3.0, 0.5, 7.5, 4.4, 5.8, 3.4, 2.1, 1.4, 0.2, 2.6, 7.1, 19.3, 29.3, 12.4, 3.4, 0.7, 7.9, 4.0, 8.8, 14.5, 7.0, 1.8, 32.2, 17.0];
-const allFailRate = [1.1, 5.8, 5.6, 6.0, 6.0, 4.5, 7.0, 3.4, 3.6, 3.5, 7.6, 7.2, 14.8, 28.8, 7.6, 4.6, 3.9, 4.5, 7.6, 4.0, 9.4, 6.3, 4.1, 6.8, 5.6, 6.8, 6.1, 7.4, 7.4];
-const allTurnAvg = [148.4, 42.2, 43.5, 52.4, 50.3, 36.7, 34.0, 52.7, 37.5, 46.7, 35.4, 35.9, 33.5, 20.9, 43.6, 49.3, 116.9, 167.2, 88.3, 42.8, 21.2, 58.3, 37.9, 57.8, 79.0, 67.3, 47.9, 204.4, 106.3];
-const allTurnMedian = [92.4, 40.8, 39.5, 66.8, 45.9, 44.2, 41.1, 46.9, 41.1, 42.6, 37.1, 35.2, 36.3, 22.9, 39.5, 39.2, 116.9, 157.1, 75.6, 48.2, 41.9, 42.7, 37.7, 44.7, 65.5, 56.2, 44.9, 202.9, 84.8];
-const allTurnP95 = [361.1, 104.1, 98.0, 83.6, 111.3, 73.1, 41.7, 135.8, 85.6, 125.5, 88.7, 113.0, 59.6, 51.1, 108.2, 140.6, 297.4, 344.1, 216.6, 58.0, 41.9, 165.7, 73.1, 173.2, 242.2, 170.1, 71.5, 478.5, 245.0];
-const allSoL = [43.2, 40.1, 41.0, 62.0, 39.5, 35.9, 36.0, 35.4, 29.8, 34.6, 27.5, 33.7, 31.8, 21.7, 39.0, 33.8, 37.8, 42.9, 44.1, 43.2, 43.9, 38.1, 44.7, 39.2, 41.4, 39.8, 41.8, 37.1, 33.4];
+const allLabels = ["2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-04", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10", "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-17", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-24", "2026-01-25", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-01-31", "2026-02-01", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-14", "2026-02-15", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-23", "2026-02-24"];
+const allSuccess = [74, 265, 320, 57, 25, 352, 434, 516, 690, 930, 348, 96, 871, 1381, 579, 679, 530, 143, 171, 638, 877, 601, 516, 11, 58, 1236, 711, 908, 1465, 1327, 265, 95, 1078, 1292, 1100, 1209, 982, 124, 94, 788, 1388, 1884, 2159, 1106, 249, 58, 776, 801, 913, 1196, 1025, 154, 2012, 1888];
+const allFailure = [6, 17, 16, 1, 0, 94, 38, 93, 201, 259, 9, 6, 73, 82, 40, 51, 63, 9, 24, 56, 136, 46, 9, 0, 0, 25, 47, 54, 106, 94, 14, 9, 41, 57, 45, 122, 100, 26, 55, 74, 74, 85, 108, 95, 11, 6, 59, 37, 73, 77, 79, 10, 180, 173];
+const allCancelled = [7, 64, 24, 10, 0, 68, 57, 56, 19, 81, 15, 8, 37, 75, 44, 14, 26, 31, 0, 72, 74, 46, 21, 0, 7, 10, 57, 29, 200, 150, 35, 24, 95, 223, 156, 274, 299, 26, 42, 112, 161, 208, 149, 51, 12, 0, 99, 56, 85, 95, 56, 0, 226, 276];
+const allRuns = [4, 17, 14, 3, 1, 30, 25, 32, 40, 54, 16, 5, 46, 73, 29, 30, 26, 9, 9, 32, 51, 31, 23, 1, 3, 55, 37, 43, 69, 64, 15, 4, 49, 67, 53, 70, 61, 8, 10, 38, 66, 84, 102, 58, 11, 2, 35, 30, 41, 56, 50, 9, 97, 113];
+const allPRs = [3, 7, 4, 2, 1, 10, 6, 16, 21, 24, 10, 3, 20, 32, 12, 15, 11, 3, 6, 11, 14, 14, 13, 0, 1, 25, 20, 21, 22, 23, 7, 2, 21, 24, 21, 21, 15, 2, 1, 13, 29, 33, 36, 26, 7, 2, 16, 19, 18, 21, 19, 4, 47, 39];
+const allDuration = [8.6, 7.7, 8.8, 8.2, 9.7, 8.3, 9.1, 8.7, 9.1, 8.9, 9.0, 9.2, 9.7, 9.7, 9.2, 9.6, 8.9, 8.4, 9.4, 9.8, 9.3, 9.0, 9.2, 4.8, 8.4, 9.8, 10.1, 9.8, 11.9, 10.0, 9.3, 8.7, 9.3, 8.9, 9.3, 8.4, 10.3, 8.9, 7.8, 9.1, 9.4, 9.2, 7.9, 7.9, 8.4, 7.8, 8.2, 7.8, 7.9, 8.1, 8.4, 8.1, 7.6, 7.6];
+const allMaDuration = [8.6, 8.2, 8.4, 8.3, 8.6, 8.5, 8.6, 8.6, 8.8, 8.9, 9.0, 8.9, 9.1, 9.2, 9.3, 9.3, 9.3, 9.2, 9.3, 9.3, 9.2, 9.2, 9.1, 8.6, 8.6, 8.6, 8.7, 8.7, 9.1, 9.3, 9.9, 9.9, 9.9, 9.7, 9.6, 9.1, 9.2, 9.1, 9.0, 9.0, 9.0, 9.0, 8.9, 8.6, 8.5, 8.5, 8.4, 8.2, 8.0, 8.0, 8.1, 8.0, 8.0, 7.9];
+const allQueue = [0.3, 0.3, 0.3, 0.2, 0.4, 0.7, 0.8, 14.1, 39.2, 7.2, 3.6, 0.2, 6.3, 21.0, 1.4, 2.7, 1.5, 0.5, 0.5, 7.9, 3.8, 1.7, 1.9, 1.5, 0.6, 47.9, 4.5, 4.6, 4.6, 6.1, 3.0, 0.5, 7.5, 4.4, 5.8, 3.4, 2.1, 1.4, 0.2, 2.6, 7.1, 19.3, 29.3, 12.4, 3.4, 0.7, 7.9, 4.0, 8.8, 14.5, 7.0, 1.8, 32.2, 17.0];
+const allFailRate = [6.9, 4.9, 4.4, 1.5, 0.0, 18.3, 7.2, 14.0, 22.1, 20.4, 2.4, 5.5, 7.4, 5.3, 6.0, 6.9, 10.2, 4.9, 12.3, 7.3, 12.5, 6.6, 1.6, 0.0, 0.0, 2.0, 5.8, 5.4, 6.0, 6.0, 4.5, 7.0, 3.4, 3.6, 3.5, 7.6, 7.2, 14.8, 28.8, 7.6, 4.6, 3.9, 4.5, 7.6, 4.0, 9.4, 6.3, 4.1, 6.8, 5.6, 6.8, 6.1, 7.4, 7.4];
+const allTurnAvg = [27.7, 22.2, 27.9, 24.5, 35.4, 23.9, 27.2, 61.8, 131.1, 46.8, 41.8, 26.3, 50.3, 93.2, 31.1, 36.5, 30.2, 23.0, 26.1, 66.5, 44.3, 29.6, 32.1, 0, 24.6, 148.2, 41.1, 44.0, 52.4, 50.3, 36.7, 34.0, 52.7, 37.5, 46.7, 35.4, 35.9, 33.5, 20.9, 43.6, 49.3, 116.9, 167.2, 88.3, 42.8, 21.2, 58.3, 37.9, 57.8, 79.0, 67.3, 47.9, 204.4, 106.3];
+const allTurnMedian = [34.0, 31.4, 32.0, 32.5, 35.4, 29.6, 35.9, 41.2, 138.7, 39.5, 39.1, 25.8, 50.0, 76.7, 34.6, 37.5, 34.0, 29.0, 33.1, 39.9, 41.7, 35.0, 35.3, 0, 34.8, 92.4, 40.5, 39.6, 66.8, 45.9, 44.2, 41.1, 46.9, 41.1, 42.6, 37.1, 35.2, 36.3, 22.9, 39.5, 39.2, 116.9, 157.1, 75.6, 48.2, 41.9, 42.7, 37.7, 44.7, 65.5, 56.2, 44.9, 202.9, 84.8];
+const allTurnP95 = [41.9, 35.1, 37.1, 33.0, 35.4, 50.6, 46.9, 138.7, 275.6, 110.9, 73.4, 58.0, 106.4, 243.3, 53.4, 71.3, 51.5, 36.7, 43.2, 153.8, 100.4, 62.7, 51.6, 0, 38.4, 361.1, 104.1, 98.0, 83.6, 111.3, 73.1, 41.7, 135.8, 85.6, 125.5, 88.7, 113.0, 59.6, 51.1, 108.2, 140.6, 297.4, 344.1, 216.6, 58.0, 41.9, 165.7, 73.1, 173.2, 242.2, 170.1, 71.5, 478.5, 245.0];
+const allSoL = [28.9, 24.0, 33.7, 27.0, 36.8, 25.3, 30.4, 31.4, 34.7, 34.4, 33.3, 35.0, 35.2, 38.4, 36.2, 38.6, 35.4, 24.9, 39.4, 52.4, 34.0, 34.4, 33.7, 0, 25.9, 43.4, 40.1, 41.0, 62.0, 39.5, 35.9, 36.0, 35.4, 29.8, 34.6, 27.5, 33.7, 31.8, 21.7, 39.0, 33.8, 37.8, 42.9, 44.1, 43.2, 43.9, 38.1, 44.7, 39.2, 41.4, 39.8, 41.8, 37.1, 33.4];
+const allBuildWait = [0.3, 0.5, 0.4, 0.5, 0.2, 0.5, 0.4, 0.3, 0.2, 0.6, 0.2, 0.2, 0.2, 0.2, 0.6, 0.2, 1.1, 0.4, 0.2, 0.7, 0.3, 0.3, 0.2, 0, 0.2, 0.2, 0.2, 0.4, 0.9, 0.7, 1.7, 1.7, 0.4, 0.5, 0.5, 0.7, 0.7, 1.0, 0.9, 0.9, 0.5, 0.5, 0.3, 0.7, 1.2, 0.2, 0.7, 0.5, 0.8, 0.3, 0.6, 0.8, 0.6, 0.6];
+const allTestWait = [0, 0, 0, 0, 0, 0.0, 0.2, 17.9, 62.5, 73.3, 2.1, 0, 4.7, 38.9, 0.6, 2.3, 5.3, 0, 0, 10.0, 6.5, 1.4, 0.8, 0, 0, 59.8, 2.9, 8.7, 1.5, 7.7, 0.0, 0, 2.9, 3.6, 5.7, 5.6, 3.2, 0.0, 0.0, 3.4, 10.6, 22.1, 25.6, 9.0, 0.0, 3.9, 4.4, 2.7, 11.1, 10.8, 21.5, 0, 37.3, 25.3];
 
 let charts = [];
+
+
+function downloadChart(canvasId) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  var link = document.createElement('a');
+  link.download = canvasId.replace('_canvas', '') + '.png';
+  link.href = canvas.toDataURL('image/png', 1.0);
+  link.click();
+}
+
 
 function sliceData(arr, n) {
   return n === 0 ? arr : arr.slice(-n);
@@ -117,7 +177,7 @@ function updateRange() {
 }
 
 // CI Turnaround time
-makeChart('turnaround', 'line', {
+makeChart('turnaround_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [
@@ -130,26 +190,38 @@ makeChart('turnaround', 'line', {
   options: {responsive:true, scales:{y:{title:{display:true,text:'Minutes'}}}}
 });
 
-// Build duration by OS
-makeChart('buildByOs', 'line', {
+// Build and test wait times
+makeChart('buildTestWait_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
-    datasets: [{label:'linux', data:sliceData([21.1, 20.9, 20.3, 30.0, 19.2, 16.0, 17.3, 15.5, 13.2, 15.0, 12.3, 16.3, 13.6, 11.6, 13.5, 14.8, 13.5, 8.9, 10.3, 9.8, 8.5, 10.1, 8.7, 9.7, 9.8, 10.7, 9.2, 7.9, 8.3],30), _allData:[21.1, 20.9, 20.3, 30.0, 19.2, 16.0, 17.3, 15.5, 13.2, 15.0, 12.3, 16.3, 13.6, 11.6, 13.5, 14.8, 13.5, 8.9, 10.3, 9.8, 8.5, 10.1, 8.7, 9.7, 9.8, 10.7, 9.2, 7.9, 8.3], borderColor:'#0d6efd', fill:false, tension:0.1},{label:'macos', data:sliceData([18.8, 19.0, 18.5, 17.6, 16.8, 16.5, 16.8, 16.7, 15.0, 15.5, 12.1, 18.0, 12.7, 9.6, 13.5, 15.8, 15.4, 9.4, 8.3, 7.0, 6.7, 8.9, 6.5, 7.8, 8.2, 8.6, 10.0, 8.6, 8.5],30), _allData:[18.8, 19.0, 18.5, 17.6, 16.8, 16.5, 16.8, 16.7, 15.0, 15.5, 12.1, 18.0, 12.7, 9.6, 13.5, 15.8, 15.4, 9.4, 8.3, 7.0, 6.7, 8.9, 6.5, 7.8, 8.2, 8.6, 10.0, 8.6, 8.5], borderColor:'#28a745', fill:false, tension:0.1},{label:'materialx', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#ffc107', fill:false, tension:0.1},{label:'slangpy', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#dc3545', fill:false, tension:0.1},{label:'windows', data:sliceData([7.7, 7.9, 7.8, 7.0, 8.0, 11.4, 10.4, 8.6, 8.1, 7.8, 6.8, 15.3, 7.6, 10.0, 14.2, 9.3, 9.1, 8.7, 9.5, 8.3, 7.3, 9.8, 8.4, 8.6, 9.9, 10.6, 10.1, 10.3, 8.8],30), _allData:[7.7, 7.9, 7.8, 7.0, 8.0, 11.4, 10.4, 8.6, 8.1, 7.8, 6.8, 15.3, 7.6, 10.0, 14.2, 9.3, 9.1, 8.7, 9.5, 8.3, 7.3, 9.8, 8.4, 8.6, 9.9, 10.6, 10.1, 10.3, 8.8], borderColor:'#6f42c1', fill:false, tension:0.1}]
+    datasets: [
+      {label:'Build Wait', data:sliceData(allBuildWait,30), _allData:allBuildWait, borderColor:'#0d6efd', fill:false, tension:0.1},
+      {label:'Test Wait (after build)', data:sliceData(allTestWait,30), _allData:allTestWait, borderColor:'#dc3545', fill:false, tension:0.1},
+    ]
+  },
+  options: {responsive:true, scales:{y:{title:{display:true,text:'Minutes'}}}}
+});
+
+// Build duration by OS
+makeChart('buildByOs_canvas', 'line', {
+  data: {
+    labels: sliceData(allLabels, 30),
+    datasets: [{label:'linux', data:sliceData([15.4, 14.2, 19.4, 15.7, 20.1, 13.9, 15.7, 17.0, 19.2, 18.9, 18.7, 16.3, 18.4, 19.1, 17.6, 19.2, 19.0, 14.1, 19.7, 17.2, 17.6, 18.5, 17.9, 0, 13.5, 21.1, 20.9, 20.3, 30.0, 19.2, 16.0, 17.3, 15.5, 13.2, 15.0, 12.3, 16.3, 13.6, 11.6, 13.5, 14.8, 13.5, 8.9, 10.3, 9.8, 8.5, 10.1, 8.7, 9.7, 9.8, 10.7, 9.2, 7.9, 8.3],30), _allData:[15.4, 14.2, 19.4, 15.7, 20.1, 13.9, 15.7, 17.0, 19.2, 18.9, 18.7, 16.3, 18.4, 19.1, 17.6, 19.2, 19.0, 14.1, 19.7, 17.2, 17.6, 18.5, 17.9, 0, 13.5, 21.1, 20.9, 20.3, 30.0, 19.2, 16.0, 17.3, 15.5, 13.2, 15.0, 12.3, 16.3, 13.6, 11.6, 13.5, 14.8, 13.5, 8.9, 10.3, 9.8, 8.5, 10.1, 8.7, 9.7, 9.8, 10.7, 9.2, 7.9, 8.3], borderColor:'#0d6efd', fill:false, tension:0.1},{label:'macos', data:sliceData([12.4, 11.8, 15.5, 11.4, 13.8, 11.5, 15.1, 16.2, 18.4, 17.4, 15.1, 16.0, 17.7, 18.8, 18.8, 17.7, 17.0, 11.6, 17.5, 16.2, 16.3, 16.8, 15.6, 0, 12.8, 18.6, 19.0, 18.5, 17.6, 16.8, 16.5, 16.8, 16.7, 15.0, 15.5, 12.1, 18.0, 12.7, 9.6, 13.5, 15.8, 15.4, 9.4, 8.3, 7.0, 6.7, 8.9, 6.5, 7.8, 8.2, 8.6, 10.0, 8.6, 8.5],30), _allData:[12.4, 11.8, 15.5, 11.4, 13.8, 11.5, 15.1, 16.2, 18.4, 17.4, 15.1, 16.0, 17.7, 18.8, 18.8, 17.7, 17.0, 11.6, 17.5, 16.2, 16.3, 16.8, 15.6, 0, 12.8, 18.6, 19.0, 18.5, 17.6, 16.8, 16.5, 16.8, 16.7, 15.0, 15.5, 12.1, 18.0, 12.7, 9.6, 13.5, 15.8, 15.4, 9.4, 8.3, 7.0, 6.7, 8.9, 6.5, 7.8, 8.2, 8.6, 10.0, 8.6, 8.5], borderColor:'#28a745', fill:false, tension:0.1},{label:'materialx', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#ffc107', fill:false, tension:0.1},{label:'rtx', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#dc3545', fill:false, tension:0.1},{label:'slangpy', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#6f42c1', fill:false, tension:0.1},{label:'windows', data:sliceData([7.2, 5.1, 7.1, 6.1, 6.3, 9.3, 9.8, 5.9, 6.4, 6.3, 6.6, 6.5, 7.0, 9.1, 7.8, 8.9, 6.2, 5.0, 9.6, 5.4, 8.1, 9.7, 7.4, 0, 4.3, 7.8, 7.9, 8.0, 7.0, 8.0, 11.4, 10.4, 8.6, 8.1, 7.8, 6.8, 15.3, 7.6, 10.0, 14.2, 9.3, 9.1, 8.7, 9.5, 8.3, 7.3, 9.8, 8.4, 8.6, 9.9, 10.6, 10.1, 10.3, 8.8],30), _allData:[7.2, 5.1, 7.1, 6.1, 6.3, 9.3, 9.8, 5.9, 6.4, 6.3, 6.6, 6.5, 7.0, 9.1, 7.8, 8.9, 6.2, 5.0, 9.6, 5.4, 8.1, 9.7, 7.4, 0, 4.3, 7.8, 7.9, 8.0, 7.0, 8.0, 11.4, 10.4, 8.6, 8.1, 7.8, 6.8, 15.3, 7.6, 10.0, 14.2, 9.3, 9.1, 8.7, 9.5, 8.3, 7.3, 9.8, 8.4, 8.6, 9.9, 10.6, 10.1, 10.3, 8.8], borderColor:'#0d6efd', fill:false, tension:0.1}]
   },
   options: {responsive:true, scales:{y:{title:{display:true,text:'Minutes'}}}}
 });
 
 // Test duration by OS
-makeChart('testByOs', 'line', {
+makeChart('testByOs_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
-    datasets: [{label:'linux', data:sliceData([7.6, 7.1, 7.6, 7.1, 7.1, 6.3, 5.1, 6.3, 6.4, 6.7, 6.4, 6.0, 6.9, 3.0, 6.1, 6.4, 6.5, 6.6, 6.6, 7.5, 6.2, 6.6, 7.3, 7.2, 7.1, 6.4, 6.4, 6.3, 6.1],30), _allData:[7.6, 7.1, 7.6, 7.1, 7.1, 6.3, 5.1, 6.3, 6.4, 6.7, 6.4, 6.0, 6.9, 3.0, 6.1, 6.4, 6.5, 6.6, 6.6, 7.5, 6.2, 6.6, 7.3, 7.2, 7.1, 6.4, 6.4, 6.3, 6.1], borderColor:'#0d6efd', fill:false, tension:0.1},{label:'macos', data:sliceData([3.3, 3.4, 3.3, 3.2, 3.2, 3.0, 2.5, 3.2, 3.2, 3.2, 3.1, 3.1, 2.8, 2.6, 3.2, 3.2, 3.4, 3.2, 3.2, 3.0, 3.0, 3.0, 3.5, 3.1, 3.1, 3.2, 3.0, 3.1, 3.3],30), _allData:[3.3, 3.4, 3.3, 3.2, 3.2, 3.0, 2.5, 3.2, 3.2, 3.2, 3.1, 3.1, 2.8, 2.6, 3.2, 3.2, 3.4, 3.2, 3.2, 3.0, 3.0, 3.0, 3.5, 3.1, 3.1, 3.2, 3.0, 3.1, 3.3], borderColor:'#28a745', fill:false, tension:0.1},{label:'materialx', data:sliceData([7.3, 9.6, 9.7, 9.8, 10.1, 9.1, 7.3, 9.5, 9.7, 9.1, 9.3, 8.7, 8.7, 8.3, 9.6, 9.6, 9.6, 10.1, 10.1, 9.8, 9.9, 10.0, 9.8, 9.8, 10.1, 10.1, 9.8, 9.8, 10.3],30), _allData:[7.3, 9.6, 9.7, 9.8, 10.1, 9.1, 7.3, 9.5, 9.7, 9.1, 9.3, 8.7, 8.7, 8.3, 9.6, 9.6, 9.6, 10.1, 10.1, 9.8, 9.9, 10.0, 9.8, 9.8, 10.1, 10.1, 9.8, 9.8, 10.3], borderColor:'#ffc107', fill:false, tension:0.1},{label:'slangpy', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 3.8, 5.8, 3.5, 0, 0, 0, 3.3, 2.7, 0, 0, 0, 0, 0, 0, 3.2, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 3.8, 5.8, 3.5, 0, 0, 0, 3.3, 2.7, 0, 0, 0, 0, 0, 0, 3.2, 0, 0, 0, 0, 0, 0], borderColor:'#dc3545', fill:false, tension:0.1},{label:'windows', data:sliceData([13.7, 14.8, 14.0, 14.0, 14.3, 14.1, 12.0, 13.9, 14.3, 14.4, 14.5, 13.5, 12.9, 11.7, 14.4, 15.0, 16.1, 16.2, 14.4, 17.1, 17.0, 16.3, 15.7, 15.3, 16.1, 17.1, 15.9, 16.6, 17.3],30), _allData:[13.7, 14.8, 14.0, 14.0, 14.3, 14.1, 12.0, 13.9, 14.3, 14.4, 14.5, 13.5, 12.9, 11.7, 14.4, 15.0, 16.1, 16.2, 14.4, 17.1, 17.0, 16.3, 15.7, 15.3, 16.1, 17.1, 15.9, 16.6, 17.3], borderColor:'#6f42c1', fill:false, tension:0.1}]
+    datasets: [{label:'linux', data:sliceData([6.7, 6.2, 6.0, 6.5, 6.8, 6.3, 6.7, 6.7, 6.3, 6.0, 6.6, 6.6, 6.8, 7.4, 6.6, 6.7, 6.6, 6.4, 6.9, 11.2, 6.5, 6.7, 7.3, 7.2, 7.3, 7.6, 7.1, 7.6, 7.1, 7.1, 6.3, 5.1, 6.3, 6.4, 6.7, 6.4, 6.0, 6.9, 3.0, 6.1, 6.4, 6.5, 6.6, 6.6, 7.5, 6.2, 6.6, 7.3, 7.2, 7.1, 6.4, 6.4, 6.3, 6.1],30), _allData:[6.7, 6.2, 6.0, 6.5, 6.8, 6.3, 6.7, 6.7, 6.3, 6.0, 6.6, 6.6, 6.8, 7.4, 6.6, 6.7, 6.6, 6.4, 6.9, 11.2, 6.5, 6.7, 7.3, 7.2, 7.3, 7.6, 7.1, 7.6, 7.1, 7.1, 6.3, 5.1, 6.3, 6.4, 6.7, 6.4, 6.0, 6.9, 3.0, 6.1, 6.4, 6.5, 6.6, 6.6, 7.5, 6.2, 6.6, 7.3, 7.2, 7.1, 6.4, 6.4, 6.3, 6.1], borderColor:'#0d6efd', fill:false, tension:0.1},{label:'macos', data:sliceData([2.9, 2.7, 2.7, 3.0, 2.8, 3.5, 3.1, 3.0, 3.1, 3.0, 3.0, 3.1, 3.2, 3.6, 3.3, 4.0, 3.0, 3.1, 3.2, 3.3, 3.6, 3.2, 3.2, 2.5, 3.1, 3.3, 3.4, 3.3, 3.2, 3.2, 3.0, 2.5, 3.2, 3.2, 3.2, 3.1, 3.1, 2.8, 2.6, 3.2, 3.2, 3.4, 3.2, 3.2, 3.0, 3.0, 3.0, 3.5, 3.1, 3.1, 3.2, 3.0, 3.1, 3.3],30), _allData:[2.9, 2.7, 2.7, 3.0, 2.8, 3.5, 3.1, 3.0, 3.1, 3.0, 3.0, 3.1, 3.2, 3.6, 3.3, 4.0, 3.0, 3.1, 3.2, 3.3, 3.6, 3.2, 3.2, 2.5, 3.1, 3.3, 3.4, 3.3, 3.2, 3.2, 3.0, 2.5, 3.2, 3.2, 3.2, 3.1, 3.1, 2.8, 2.6, 3.2, 3.2, 3.4, 3.2, 3.2, 3.0, 3.0, 3.0, 3.5, 3.1, 3.1, 3.2, 3.0, 3.1, 3.3], borderColor:'#28a745', fill:false, tension:0.1},{label:'materialx', data:sliceData([0, 0, 6.3, 5.8, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 6.9, 6.7, 7.2, 6.8, 6.8, 6.7, 6.5, 6.5, 6.8, 7.1, 0, 6.7, 7.3, 9.6, 9.6, 9.8, 10.1, 9.1, 7.3, 9.5, 9.7, 9.1, 9.3, 8.7, 8.7, 8.3, 9.6, 9.6, 9.6, 10.1, 10.1, 9.8, 9.9, 10.0, 9.8, 9.8, 10.1, 10.1, 9.8, 9.8, 10.3],30), _allData:[0, 0, 6.3, 5.8, 0, 0, 0, 0, 0, 0, 0, 0, 7.0, 6.9, 6.7, 7.2, 6.8, 6.8, 6.7, 6.5, 6.5, 6.8, 7.1, 0, 6.7, 7.3, 9.6, 9.6, 9.8, 10.1, 9.1, 7.3, 9.5, 9.7, 9.1, 9.3, 8.7, 8.7, 8.3, 9.6, 9.6, 9.6, 10.1, 10.1, 9.8, 9.9, 10.0, 9.8, 9.8, 10.1, 10.1, 9.8, 9.8, 10.3], borderColor:'#ffc107', fill:false, tension:0.1},{label:'rtx', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13.6, 19.7, 22.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13.6, 19.7, 22.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor:'#dc3545', fill:false, tension:0.1},{label:'slangpy', data:sliceData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8, 5.8, 3.5, 0, 0, 0, 3.3, 2.7, 0, 0, 0, 0, 0, 0, 3.2, 0, 0, 0, 0, 0, 0],30), _allData:[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8, 5.8, 3.5, 0, 0, 0, 3.3, 2.7, 0, 0, 0, 0, 0, 0, 3.2, 0, 0, 0, 0, 0, 0], borderColor:'#6f42c1', fill:false, tension:0.1},{label:'windows', data:sliceData([14.2, 11.8, 13.5, 12.3, 15.1, 12.1, 13.6, 12.6, 12.7, 12.5, 12.9, 14.1, 14.7, 13.9, 13.7, 14.2, 13.2, 13.8, 14.4, 13.3, 14.3, 12.8, 13.7, 0, 15.0, 13.7, 14.8, 14.0, 14.0, 14.3, 14.1, 12.0, 13.9, 14.3, 14.4, 14.5, 13.5, 12.9, 11.7, 14.4, 15.0, 16.1, 16.2, 14.4, 17.1, 17.0, 16.3, 15.7, 15.3, 16.1, 17.1, 15.9, 16.6, 17.3],30), _allData:[14.2, 11.8, 13.5, 12.3, 15.1, 12.1, 13.6, 12.6, 12.7, 12.5, 12.9, 14.1, 14.7, 13.9, 13.7, 14.2, 13.2, 13.8, 14.4, 13.3, 14.3, 12.8, 13.7, 0, 15.0, 13.7, 14.8, 14.0, 14.0, 14.3, 14.1, 12.0, 13.9, 14.3, 14.4, 14.5, 13.5, 12.9, 11.7, 14.4, 15.0, 16.1, 16.2, 14.4, 17.1, 17.0, 16.3, 15.7, 15.3, 16.1, 17.1, 15.9, 16.6, 17.3], borderColor:'#0d6efd', fill:false, tension:0.1}]
   },
   options: {responsive:true, scales:{y:{title:{display:true,text:'Minutes'}}}}
 });
 
 // Jobs per day (stacked bar)
-makeChart('jobsPerDay', 'bar', {
+makeChart('jobsPerDay_canvas', 'bar', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [
@@ -162,7 +234,7 @@ makeChart('jobsPerDay', 'bar', {
 });
 
 // Active PRs per day
-makeChart('prsPerDay', 'line', {
+makeChart('prsPerDay_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [{label:'Active PRs', data:sliceData(allPRs,30), _allData:allPRs, borderColor:'#28a745', fill:true, backgroundColor:'rgba(40,167,69,0.1)', tension:0.1}]
@@ -171,7 +243,7 @@ makeChart('prsPerDay', 'line', {
 });
 
 // Runs per day
-makeChart('runsPerDay', 'line', {
+makeChart('runsPerDay_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [{label:'Workflow Runs', data:sliceData(allRuns,30), _allData:allRuns, borderColor:'#0d6efd', fill:false, tension:0.1}]
@@ -180,7 +252,7 @@ makeChart('runsPerDay', 'line', {
 });
 
 // Average duration
-makeChart('avgDuration', 'line', {
+makeChart('avgDuration_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [
@@ -192,7 +264,7 @@ makeChart('avgDuration', 'line', {
 });
 
 // Queue wait time
-makeChart('avgQueue', 'line', {
+makeChart('avgQueue_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [{label:'Avg Queue (min)', data:sliceData(allQueue,30), _allData:allQueue, borderColor:'#6f42c1', fill:true, backgroundColor:'rgba(111,66,193,0.1)', tension:0.1}]
@@ -201,7 +273,7 @@ makeChart('avgQueue', 'line', {
 });
 
 // Failure rate
-makeChart('failureRate', 'line', {
+makeChart('failureRate_canvas', 'line', {
   data: {
     labels: sliceData(allLabels, 30),
     datasets: [{label:'Failure Rate %', data:sliceData(allFailRate,30), _allData:allFailRate, borderColor:'#dc3545', fill:true, backgroundColor:'rgba(220,53,69,0.1)', tension:0.1}]
@@ -210,21 +282,21 @@ makeChart('failureRate', 'line', {
 });
 
 // By runner group (static, no range filter)
-new Chart(document.getElementById('byGroup').getContext('2d'), {
+new Chart(document.getElementById('byGroup_canvas').getContext('2d'), {
   type: 'bar',
   data: {
     labels: ["GitHub Linux ARM64", "GitHub Linux x64", "GitHub Windows", "GitHub macOS", "Linux GPU", "Other", "Windows GPU (GCP)"],
-    datasets: [{label:'Jobs', data:[3995, 6534, 803, 8285, 5916, 6, 8077], backgroundColor:'#0d6efd'}]
+    datasets: [{label:'Jobs', data:[4003, 9451, 988, 12104, 8517, 129, 11893], backgroundColor:'#0d6efd'}]
   },
   options: {responsive:true, indexAxis:'y'}
 });
 
 // By event type (static)
-new Chart(document.getElementById('byEvent').getContext('2d'), {
+new Chart(document.getElementById('byEvent_canvas').getContext('2d'), {
   type: 'pie',
   data: {
     labels: ["merge_group", "pull_request", "workflow_dispatch"],
-    datasets: [{data:[5114, 28500, 2], backgroundColor:['#0d6efd','#28a745','#ffc107','#dc3545','#6f42c1','#fd7e14','#20c997','#e83e8c']}]
+    datasets: [{data:[7008, 39972, 105], backgroundColor:['#0d6efd','#28a745','#ffc107','#dc3545','#6f42c1','#fd7e14','#20c997','#e83e8c']}]
   },
   options: {responsive:true}
 });
