@@ -33,34 +33,32 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-02-27 13:45 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-02-27 14:15 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">45</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">38</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">27</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">10</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">22</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">16</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">19</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th></tr>
-<tr><td>Linux GPU (GCP)</td><td>12</td><td>6</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>7</td><td>12</td></tr>
-<tr><td>Windows</td><td>22</td><td>3</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>9</td></tr>
-<tr><td>Linux ARM64 (GH)</td><td>0</td><td>3</td></tr>
-<tr><td>macOS (GH)</td><td>4</td><td>5</td></tr>
+<tr><td>Linux GPU (GCP)</td><td>0</td><td>3</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>5</td><td>9</td></tr>
+<tr><td>Windows</td><td>17</td><td>3</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>1</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>3h 24m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22482416464/job/65123638683" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-entry-point-params</td></tr>
-<tr><td>3h 24m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22482416458/job/65123638776" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-entry-point-params</td></tr>
-<tr><td>2h 00m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22485026387/job/65132379713" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-jsonrpc-intermittency</td></tr>
-<tr><td>1h 08m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486613585/job/65137727369" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-com-if</td></tr>
-<tr><td>1h 08m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486613599/job/65137727366" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-com-if</td></tr>
+<tr><td>3h 51m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22482416458/job/65123638776" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-entry-point-params</td></tr>
+<tr><td>2h 27m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22485026387/job/65132379713" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-jsonrpc-intermittency</td></tr>
+<tr><td>1h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486613585/job/65137727369" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-com-if</td></tr>
+<tr><td>1h 23m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486986111/job/65139011743" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>gpu-scaler</td></tr>
+<tr><td>1h 12m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367777/job/65140261498" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-slang-enable-asan-1</td></tr>
 </table>
 
 
@@ -86,12 +84,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // All snapshot data
-const allTimestamps = ["13:45"];
-const allRunnerData = {"Linux GPU (GCP)": [0], "Windows GPU (GCP)": [0]};
-const allRunsInProgress = [10];
-const allRunsQueued = [27];
-const allJobsQueued = [45];
-const allJobsRunning = [38];
+const allTimestamps = ["13:45", "14:15"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0], "Windows GPU (GCP)": [0, 0]};
+const allRunsInProgress = [10, 6];
+const allRunsQueued = [27, 19];
+const allJobsQueued = [45, 22];
+const allJobsRunning = [38, 16];
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
@@ -186,6 +184,7 @@ buildCharts(24);
 
 <h2>Recent CI Failures</h2>
 <table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487873943" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10238-871fd3cc8410a14dd88c30bc3b38d88ff7c928ec</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:50</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487873495" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10257-03d80ea880b5c2245b96d6213c6e58aaaa9e2b42</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:46</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677182" target="_blank" rel="noopener noreferrer">dyn-dispatch-test-ref-return</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:38</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367789" target="_blank" rel="noopener noreferrer">fix-slang-enable-asan-1</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:46</td></tr>
@@ -195,7 +194,6 @@ buildCharts(24);
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22485811164" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10285-0a64f3e473db5d52df6b15e3ffced6ab07c748f8</a></td><td>jkiviluoto-nv</td><td>2026-02-27 12:46</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22484651841" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10285-976bbb3ca129d5b520e02b0e9a5cb129c3bce9df</a></td><td>jkiviluoto-nv</td><td>2026-02-27 12:58</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22481322374" target="_blank" rel="noopener noreferrer">worktree-fix-windows-cache-gzip</a></td><td>jkiviluoto-nv</td><td>2026-02-27 11:22</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22480393402" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10010-0a64f3e473db5d52df6b15e3ffced6ab07c748f8</a></td><td>szihs</td><td>2026-02-27 12:30</td></tr>
 </table>
 
 
