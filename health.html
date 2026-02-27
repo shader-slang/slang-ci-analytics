@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health - Slang CI Analytics</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #fff; color: #333; }
+  nav a { color: #adb5bd; text-decoration: none; }
+  nav a:hover { color: white; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+  h1, h2, h3 { color: #212529; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #dee2e6; padding: 8px; text-align: left; }
+  th { background: #f8f9fa; }
+  .chart-container { position: relative; width: 100%; max-width: 1200px; margin: 20px 0; }
+  .chart-section { margin-bottom: 30px; }
+  .chart-section h2 { display: flex; align-items: center; gap: 8px; }
+  .chart-section h2 a.anchor { color: #adb5bd; text-decoration: none; font-size: 0.7em; visibility: hidden; }
+  .chart-section:hover h2 a.anchor { visibility: visible; }
+  .chart-section h2 a.anchor:hover { color: #0d6efd; }
+  .download-btn { font-size: 12px; color: #6c757d; cursor: pointer; border: 1px solid #dee2e6; background: white; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+  .download-btn:hover { background: #f8f9fa; color: #333; }
+  .stat-card { display: inline-block; background: #f8f9fa; border-radius: 8px; padding: 15px 25px; margin: 5px; text-align: center; }
+  .stat-card .value { font-size: 2em; font-weight: bold; color: #212529; }
+  .stat-card .label { font-size: 0.9em; color: #6c757d; }
+</style>
+</head>
+<body>
+<nav style="background:#343a40;padding:10px 20px;color:white;font-family:sans-serif">
+  <strong>Slang CI Analytics</strong> &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="statistics.html">Statistics</a> &nbsp;|&nbsp; <a href="health.html" style="font-weight:bold;text-decoration:underline">Health</a>
+</nav>
+<div class="container">
+
+<h1>CI System Health</h1>
+<p style="color:#6c757d">Last updated: 2026-02-27 13:45 UTC</p>
+
+<h2>Queue Status</h2>
+
+<div>
+  <div class="stat-card"><div class="value">45</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">38</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">27</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">10</div><div class="label">Runs In Progress</div></div>
+</div>
+
+<h3>Queue Depth by Runner Group</h3>
+<table><tr><th>Group</th><th>Queued</th><th>Running</th></tr>
+<tr><td>Linux GPU (GCP)</td><td>12</td><td>6</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>7</td><td>12</td></tr>
+<tr><td>Windows</td><td>22</td><td>3</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>9</td></tr>
+<tr><td>Linux ARM64 (GH)</td><td>0</td><td>3</td></tr>
+<tr><td>macOS (GH)</td><td>4</td><td>5</td></tr>
+</table>
+
+<h3>Longest Waiting Jobs</h3>
+<table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
+<tr><td>3h 24m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22482416464/job/65123638683" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-entry-point-params</td></tr>
+<tr><td>3h 24m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22482416458/job/65123638776" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-entry-point-params</td></tr>
+<tr><td>2h 00m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22485026387/job/65132379713" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-jsonrpc-intermittency</td></tr>
+<tr><td>1h 08m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486613585/job/65137727369" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-com-if</td></tr>
+<tr><td>1h 08m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486613599/job/65137727366" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-com-if</td></tr>
+</table>
+
+
+<h2>24h Load History</h2>
+
+<div style="margin-bottom:15px">
+  <label>Time window: </label>
+  <select id="historyRange" onchange="updateHistoryRange()">
+    <option value="4">Last 4 hours</option>
+    <option value="12">Last 12 hours</option>
+    <option value="24" selected>Last 24 hours</option>
+  </select>
+</div>
+<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
+  <canvas id="runnerHistory"></canvas>
+</div>
+<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
+  <canvas id="workflowHistory"></canvas>
+</div>
+<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
+  <canvas id="queueHistory"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// All snapshot data
+const allTimestamps = ["13:45"];
+const allRunnerData = {"Linux GPU (GCP)": [0], "Windows GPU (GCP)": [0]};
+const allRunsInProgress = [10];
+const allRunsQueued = [27];
+const allJobsQueued = [45];
+const allJobsRunning = [38];
+
+const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows GPU (GCP)": "#28a745"};
+const pointsPerHour = 4; // 15-min intervals
+
+let charts = {};
+
+function sliceLast(arr, n) { return arr.slice(-n); }
+
+function thinLabels(labels, step) {
+  return labels.map((l, i) => i % step === 0 ? l : '');
+}
+
+function buildCharts(hours) {
+  const n = hours * pointsPerHour;
+  const tickStep = hours >= 24 ? 2 : 1; // every 30min for 24h, 15min for shorter
+  const labels = sliceLast(allTimestamps, n);
+  const displayLabels = thinLabels(labels, tickStep);
+
+  // Destroy existing charts
+  Object.values(charts).forEach(c => c.destroy());
+  charts = {};
+
+  // Runner VMs
+  const runnerDatasets = [];
+  for (const [g, color] of Object.entries(runnerColors)) {
+    runnerDatasets.push({
+      label: g,
+      data: sliceLast(allRunnerData[g], n),
+      borderColor: color,
+      backgroundColor: color + '55',
+      fill: true,
+      tension: 0.3,
+    });
+  }
+  charts.runner = new Chart(document.getElementById('runnerHistory').getContext('2d'), {
+    type: 'line',
+    data: { labels: displayLabels, datasets: runnerDatasets },
+    options: {
+      responsive: true,
+      scales: { y: { min: 0, stacked: true, title: { display: true, text: 'GCP VMs Online' } } },
+      plugins: { title: { display: true, text: 'GCP Runner VMs' } }
+    }
+  });
+
+  // Workflow runs
+  charts.workflow = new Chart(document.getElementById('workflowHistory').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: displayLabels,
+      datasets: [
+        { label: 'Runs In Progress', data: sliceLast(allRunsInProgress, n), borderColor: '#0d6efd', fill: true, backgroundColor: 'rgba(13,110,253,0.1)', tension: 0.3 },
+        { label: 'Runs Queued', data: sliceLast(allRunsQueued, n), borderColor: '#ffc107', fill: true, backgroundColor: 'rgba(255,193,7,0.1)', tension: 0.3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { min: 0, title: { display: true, text: 'Workflow Runs' } } },
+      plugins: { title: { display: true, text: 'Active CI Workflows' } }
+    }
+  });
+
+  // Job queue
+  charts.queue = new Chart(document.getElementById('queueHistory').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: displayLabels,
+      datasets: [
+        { label: 'Jobs Queued', data: sliceLast(allJobsQueued, n), borderColor: '#dc3545', fill: true, backgroundColor: 'rgba(220,53,69,0.1)', tension: 0.3 },
+        { label: 'Jobs Running', data: sliceLast(allJobsRunning, n), borderColor: '#0d6efd', fill: false, tension: 0.3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { min: 0, title: { display: true, text: 'Jobs' } } },
+      plugins: { title: { display: true, text: 'Job Queue Depth' } }
+    }
+  });
+}
+
+function updateHistoryRange() {
+  const hours = parseInt(document.getElementById('historyRange').value);
+  buildCharts(hours);
+}
+
+// Initial render
+buildCharts(24);
+</script>
+
+
+<h2>Self-Hosted Runner Status</h2>
+<p>Runner data not available (may require admin access).</p>
+
+<h2>Recent CI Failures</h2>
+<table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487873495" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10257-03d80ea880b5c2245b96d6213c6e58aaaa9e2b42</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:46</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677182" target="_blank" rel="noopener noreferrer">dyn-dispatch-test-ref-return</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:38</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367789" target="_blank" rel="noopener noreferrer">fix-slang-enable-asan-1</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:46</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22486986153" target="_blank" rel="noopener noreferrer">gpu-scaler</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:25</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22486807895" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10284-d1d29ba4496bce610eae68c8ccb4641c2eeabaa6</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:20</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22485811510" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10010-235a462f9623d524a962c162e1bfa1f5ab71c39f</a></td><td>szihs</td><td>2026-02-27 13:32</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22485811164" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10285-0a64f3e473db5d52df6b15e3ffced6ab07c748f8</a></td><td>jkiviluoto-nv</td><td>2026-02-27 12:46</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22484651841" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10285-976bbb3ca129d5b520e02b0e9a5cb129c3bce9df</a></td><td>jkiviluoto-nv</td><td>2026-02-27 12:58</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22481322374" target="_blank" rel="noopener noreferrer">worktree-fix-windows-cache-gzip</a></td><td>jkiviluoto-nv</td><td>2026-02-27 11:22</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22480393402" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10010-0a64f3e473db5d52df6b15e3ffced6ab07c748f8</a></td><td>szihs</td><td>2026-02-27 12:30</td></tr>
+</table>
+
+
+</div>
+</body>
+</html>
