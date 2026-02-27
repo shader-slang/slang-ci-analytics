@@ -33,34 +33,33 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-02-27 16:00 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-02-27 16:30 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">13</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">23</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">7</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">4</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">21</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">4</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">8</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th></tr>
-<tr><td>Linux GPU (GCP)</td><td>0</td><td>8</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>7</td><td>7</td></tr>
-<tr><td>Windows</td><td>4</td><td>3</td></tr>
+<tr><td>Linux GPU (GCP)</td><td>0</td><td>4</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>1</td><td>7</td></tr>
+<tr><td>Windows</td><td>3</td><td>3</td></tr>
 <tr><td>Linux (GH)</td><td>0</td><td>3</td></tr>
-<tr><td>Linux ARM64 (GH)</td><td>2</td><td>0</td></tr>
-<tr><td>macOS (GH)</td><td>0</td><td>2</td></tr>
+<tr><td>Linux ARM64 (GH)</td><td>0</td><td>3</td></tr>
+<tr><td>Windows (GH)</td><td>0</td><td>1</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>36m 32s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22492650044/job/65158749988" target="_blank" rel="noopener noreferrer">build</a></td><td>push-xpvvrsxlmzos</td></tr>
-<tr><td>36m 31s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22492650021/job/65158750441" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>push-xpvvrsxlmzos</td></tr>
-<tr><td>36m 17s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22492650059/job/65158781210" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>push-xpvvrsxlmzos</td></tr>
-<tr><td>17m 32s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22493353207/job/65161219133" target="_blank" rel="noopener noreferrer">build</a></td><td>master</td></tr>
-<tr><td>5m 00s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22493354422/job/65162814075" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu / test-slang-rhi</a></td><td>gh-readonly-queue/master/pr-10260-adb2b0f1a819dd79dc3c35de6dd03a3b0a70592a</td></tr>
+<tr><td>53m 44s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22492650021/job/65158750441" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>push-xpvvrsxlmzos</td></tr>
+<tr><td>12m 27s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22494163502/job/65164085312" target="_blank" rel="noopener noreferrer">build</a></td><td>gpu-scaler</td></tr>
+<tr><td>12m 27s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22494163512/job/65164085153" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>gpu-scaler</td></tr>
+<tr><td>1m 43s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22494163477/job/65165452799" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang</a></td><td>gpu-scaler</td></tr>
 </table>
 
 
@@ -86,12 +85,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // All snapshot data
-const allTimestamps = ["13:45", "14:15", "14:45", "15:15", "15:45", "16:00"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0]};
-const allRunsInProgress = [10, 6, 6, 7, 6, 6];
-const allRunsQueued = [27, 19, 16, 16, 9, 7];
-const allJobsQueued = [45, 22, 17, 18, 19, 13];
-const allJobsRunning = [38, 16, 23, 24, 27, 23];
+const allTimestamps = ["13:45", "14:15", "14:45", "15:15", "15:45", "16:00", "16:15"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0, 0]};
+const allRunsInProgress = [10, 6, 6, 7, 6, 6, 8];
+const allRunsQueued = [27, 19, 16, 16, 9, 7, 4];
+const allJobsQueued = [45, 22, 17, 18, 19, 13, 4];
+const allJobsRunning = [38, 16, 23, 24, 27, 23, 21];
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
@@ -190,8 +189,6 @@ buildCharts(24);
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487873495" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10257-03d80ea880b5c2245b96d6213c6e58aaaa9e2b42</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:46</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677182" target="_blank" rel="noopener noreferrer">dyn-dispatch-test-ref-return</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:38</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367789" target="_blank" rel="noopener noreferrer">fix-slang-enable-asan-1</a></td><td>jvepsalainen-nv</td><td>2026-02-27 13:46</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22486986153" target="_blank" rel="noopener noreferrer">gpu-scaler</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:25</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22486807895" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10284-d1d29ba4496bce610eae68c8ccb4641c2eeabaa6</a></td><td>jkiviluoto-nv</td><td>2026-02-27 13:20</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22485811510" target="_blank" rel="noopener noreferrer">gh-readonly-queue/master/pr-10010-235a462f9623d524a962c162e1bfa1f5ab71c39f</a></td><td>szihs</td><td>2026-02-27 13:32</td></tr>
 </table>
 
