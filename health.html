@@ -33,34 +33,34 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-02-27 14:45 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-02-27 15:15 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">17</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">23</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">18</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">24</div><div class="label">Jobs Running</div></div>
   <div class="stat-card"><div class="value">16</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">7</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th></tr>
-<tr><td>Linux GPU (GCP)</td><td>0</td><td>5</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>3</td><td>5</td></tr>
+<tr><td>Linux GPU (GCP)</td><td>0</td><td>2</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>4</td><td>4</td></tr>
 <tr><td>Windows</td><td>14</td><td>3</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>4</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>7</td></tr>
 <tr><td>Linux ARM64 (GH)</td><td>0</td><td>4</td></tr>
-<tr><td>macOS (GH)</td><td>0</td><td>2</td></tr>
+<tr><td>macOS (GH)</td><td>0</td><td>4</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>2h 56m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22485026387/job/65132379713" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-jsonrpc-intermittency</td></tr>
-<tr><td>1h 52m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22486986111/job/65139011743" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>gpu-scaler</td></tr>
-<tr><td>1h 41m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367744/job/65140261181" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-slang-enable-asan-1</td></tr>
-<tr><td>1h 41m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367740/job/65140260961" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-slang-enable-asan-1</td></tr>
-<tr><td>1h 31m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677165/job/65141290589" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-ref-return</td></tr>
+<tr><td>2h 11m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367744/job/65140261181" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-slang-enable-asan-1</td></tr>
+<tr><td>2h 11m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487367740/job/65140260961" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-slang-enable-asan-1</td></tr>
+<tr><td>2h 01m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677165/job/65141290589" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-ref-return</td></tr>
+<tr><td>2h 01m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22487677138/job/65141290764" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-ref-return</td></tr>
+<tr><td>1h 42m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22488302460/job/65143438114" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>worktree-fix-windows-sccache-tar</td></tr>
 </table>
 
 
@@ -86,12 +86,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 // All snapshot data
-const allTimestamps = ["13:45", "14:15", "14:45"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0], "Windows GPU (GCP)": [0, 0, 0]};
-const allRunsInProgress = [10, 6, 6];
-const allRunsQueued = [27, 19, 16];
-const allJobsQueued = [45, 22, 17];
-const allJobsRunning = [38, 16, 23];
+const allTimestamps = ["13:45", "14:15", "14:45", "15:15"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0]};
+const allRunsInProgress = [10, 6, 6, 7];
+const allRunsQueued = [27, 19, 16, 16];
+const allJobsQueued = [45, 22, 17, 18];
+const allJobsRunning = [38, 16, 23, 24];
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
