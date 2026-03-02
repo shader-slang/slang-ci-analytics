@@ -33,35 +33,32 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-03-02 21:15 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-03-02 21:45 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">44</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">20</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">30</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">4</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">27</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">8</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">24</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">5</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Linux GPU (GCP)</td><td>1</td><td>5</td><td>0 idle / 5 total</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>3</td><td>6</td><td>0 idle / 6 total</td></tr>
-<tr><td>Windows</td><td>26</td><td>3</td><td>0 idle / 3 total</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
-<tr><td>macOS (GH)</td><td>14</td><td>2</td><td>(cloud)</td></tr>
-<tr><td>Windows (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
-<tr><td>Windows Build (GCP)</td><td>0</td><td>1</td><td>1 idle / 2 total</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>0</td><td>2</td><td>1 idle / 3 total</td></tr>
+<tr><td>Windows</td><td>22</td><td>3</td><td>0 idle / 3 total</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
+<tr><td>macOS (GH)</td><td>5</td><td>2</td><td>(cloud)</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>2h 16m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22591205182/job/65449336317" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>win-build-labels</td></tr>
-<tr><td>1h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592683550/job/65454520983" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
-<tr><td>1h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592683538/job/65454520944" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
-<tr><td>1h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684657/job/65454524903" target="_blank" rel="noopener noreferrer">build</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
-<tr><td>1h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684714/job/65454525377" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
+<tr><td>2h 44m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22591205182/job/65449336317" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>win-build-labels</td></tr>
+<tr><td>2h 04m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592683550/job/65454520983" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
+<tr><td>2h 04m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592683538/job/65454520944" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
+<tr><td>2h 04m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684657/job/65454524903" target="_blank" rel="noopener noreferrer">build</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
+<tr><td>2h 04m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684714/job/65454525377" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
 </table>
 
 
@@ -208,12 +205,12 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:15", "02:15", "03:15", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:30", "11:45", "12:15", "12:45", "13:30", "14:00", "14:30", "15:00", "15:30", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "20:30", "20:45", "21:15"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 5, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 5, 2, 4, 6, 2, 8, 8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0, 0, 0, 6, 0, 0, 5], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 3, 2], "Windows GPU (GCP)": [0, 0, 0, 0, 2, 2, 3, 2, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 2, 3, 4, 2, 2, 8, 2, 7, 4, 9, 11, 14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0, 0, 0, 12, 7, 0, 6]};
-const allRunsInProgress = [1, 1, 1, 1, 4, 3, 2, 8, 4, 3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 3, 9, 5, 3, 3, 3, 12, 5, 10, 5, 10, 7, 10, 9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 4, 9, 7, 7, 6, 10, 4];
-const allRunsQueued = [0, 0, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 5, 0, 5, 5, 5, 6, 26, 31, 34, 44, 48, 48, 39, 33, 31, 28, 27, 24, 17, 25, 27, 31, 34, 32, 30];
-const allJobsQueued = [0, 0, 0, 0, 1, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3, 0, 0, 0, 0, 6, 0, 8, 7, 6, 15, 61, 47, 54, 76, 82, 66, 41, 34, 32, 33, 27, 24, 17, 27, 33, 43, 40, 42, 44];
-const allJobsRunning = [1, 1, 1, 1, 12, 11, 4, 16, 8, 5, 1, 1, 1, 1, 3, 1, 1, 1, 1, 8, 2, 3, 16, 13, 5, 6, 10, 26, 16, 23, 20, 27, 23, 43, 37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 5, 29, 31, 35, 19, 24, 20];
+const allTimestamps = ["21:45", "22:00", "22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:15", "02:15", "03:15", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:30", "11:45", "12:15", "12:45", "13:30", "14:00", "14:30", "15:00", "15:30", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "20:30", "20:45", "21:15", "21:45"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 5, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 5, 2, 4, 6, 2, 8, 8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0, 0, 0, 6, 0, 0, 5, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 3, 2, 1], "Windows GPU (GCP)": [0, 0, 2, 2, 3, 2, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 2, 3, 4, 2, 2, 8, 2, 7, 4, 9, 11, 14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0, 0, 0, 12, 7, 0, 6, 3]};
+const allRunsInProgress = [1, 1, 4, 3, 2, 8, 4, 3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 3, 9, 5, 3, 3, 3, 12, 5, 10, 5, 10, 7, 10, 9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 4, 9, 7, 7, 6, 10, 4, 5];
+const allRunsQueued = [0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 5, 0, 5, 5, 5, 6, 26, 31, 34, 44, 48, 48, 39, 33, 31, 28, 27, 24, 17, 25, 27, 31, 34, 32, 30, 24];
+const allJobsQueued = [0, 0, 1, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3, 0, 0, 0, 0, 6, 0, 8, 7, 6, 15, 61, 47, 54, 76, 82, 66, 41, 34, 32, 33, 27, 24, 17, 27, 33, 43, 40, 42, 44, 27];
+const allJobsRunning = [1, 1, 12, 11, 4, 16, 8, 5, 1, 1, 1, 1, 3, 1, 1, 1, 1, 8, 2, 3, 16, 13, 5, 6, 10, 26, 16, 23, 20, 27, 23, 43, 37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 5, 29, 31, 35, 19, 24, 20, 8];
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
@@ -301,39 +298,28 @@ buildCharts(24);
 
 
 <h2>Self-Hosted Runner Status</h2>
-<h3>Linux GPU (GCP) (5/5 busy)</h3>
+<h3>Windows Build (GCP) (0/1 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>linux-test-003b3382</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65465764519" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (fix/hlsl-semantic-index)</a></td></tr>
-<tr><td>linux-test-136a2fcf</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65465764531" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slangpy (fix/hlsl-semantic-index)</a></td></tr>
-<tr><td>linux-test-447a06a0</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65465764587" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang-rhi (fix/hlsl-semantic-index)</a></td></tr>
-<tr><td>linux-test-70bf2ab4</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65466209008" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slang (fix/hlsl-semantic-index)</a></td></tr>
-<tr><td>linux-test-9daa66f2</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65466209019" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slangpy (fix/hlsl-semantic-index)</a></td></tr>
-</table>
-<h3>Windows Build (GCP) (1/2 busy)</h3>
-<table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-build-a0571a1d</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65464455479" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build (fix/hlsl-semantic-index)</a></td></tr>
 <tr><td>win-build-b5fe5e85</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 </table>
-<h3>Windows GPU (GCP) (6/6 busy)</h3>
+<h3>Windows GPU (GCP) (2/3 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-test-17b9b890</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595236245/job/65464993768" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slangpy (tensor_view_add)</a></td></tr>
-<tr><td>win-test-631f6646</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595015521/job/65465012829" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slangpy (fix/replace-op-amp-w-get-address)</a></td></tr>
-<tr><td>win-test-6857068b</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595015521/job/65465012813" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang-rhi (fix/replace-op-amp-w-get-address)</a></td></tr>
-<tr><td>win-test-708d8efb</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595236245/job/65464993834" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (tensor_view_add)</a></td></tr>
-<tr><td>win-test-90cca3d3</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595015521/job/65465012822" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (fix/replace-op-amp-w-get-address)</a></td></tr>
-<tr><td>win-test-c2536e56</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595236245/job/65464993777" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang-rhi (tensor_view_add)</a></td></tr>
+<tr><td>win-test-393176bc</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65466796855" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (fix/hlsl-semantic-index)</a></td></tr>
+<tr><td>win-test-c84234af</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
+<tr><td>win-test-e461a7d6</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22595532339/job/65466796920" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slangpy (fix/hlsl-semantic-index)</a></td></tr>
 </table>
 
 <h3>Other Runners</h3>
 <table><tr><th>Runner</th><th>Group</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22593068444/job/65455841405" target="_blank" rel="noopener noreferrer">build (jkiviluoto/fix-runner-prefixes)</a></td></tr>
-<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592683551/job/65454520960" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (jkiviluoto/decouple-slangpy-testing)</a></td></tr>
-<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22585044596/job/65427465766" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (dyn-dispatch-test-missing-anyvaluesize)</a></td></tr>
+<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22593418632/job/65457054243" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (worktree-fix-diagnose-global-interface-param-tests)</a></td></tr>
+<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684686/job/65454556099" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (jkiviluoto/decouple-slangpy-testing)</a></td></tr>
+<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22593418679/job/65457054244" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (worktree-fix-diagnose-global-interface-param-tests)</a></td></tr>
 </table>
 
 
 <h2>Recent CI Failures</h2>
 <table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22595236245" target="_blank" rel="noopener noreferrer">tensor_view_add</a></td><td>kaizhangNV</td><td>2026-03-02 21:40</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22593068421" target="_blank" rel="noopener noreferrer">jkiviluoto/fix-runner-prefixes</a></td><td>jkiviluoto-nv</td><td>2026-03-02 21:16</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22592690426" target="_blank" rel="noopener noreferrer">gpu-scaler</a></td><td>jkiviluoto-nv</td><td>2026-03-02 21:00</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22592684782" target="_blank" rel="noopener noreferrer">jkiviluoto/decouple-slangpy-testing</a></td><td>jkiviluoto-nv</td><td>2026-03-02 20:33</td></tr>
@@ -341,8 +327,6 @@ buildCharts(24);
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22591205196" target="_blank" rel="noopener noreferrer">win-build-labels</a></td><td>jkiviluoto-nv</td><td>2026-03-02 19:50</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22590965493" target="_blank" rel="noopener noreferrer">worktree-health-page-chart-buttons</a></td><td>jkiviluoto-nv</td><td>2026-03-02 19:39</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22589575287" target="_blank" rel="noopener noreferrer">fix/clean-up-option-check</a></td><td>jkwak-work</td><td>2026-03-02 19:05</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22588505548" target="_blank" rel="noopener noreferrer">2026-02-capability-improvements</a></td><td>skiminki-nv</td><td>2026-03-02 18:42</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22585885629" target="_blank" rel="noopener noreferrer">gpu-scaler</a></td><td>jkiviluoto-nv</td><td>2026-03-02 18:27</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22582686319" target="_blank" rel="noopener noreferrer">jkiviluoto/decouple-slangpy-testing</a></td><td>jkiviluoto-nv</td><td>2026-03-02 19:26</td></tr>
 </table>
 
