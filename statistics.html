@@ -19,7 +19,7 @@
   .chart-section h2 a.anchor { color: #adb5bd; text-decoration: none; font-size: 0.7em; visibility: hidden; }
   .chart-section:hover h2 a.anchor { visibility: visible; }
   .chart-section h2 a.anchor:hover { color: #0d6efd; }
-  .download-btn { font-size: 12px; color: #6c757d; cursor: pointer; border: 1px solid #dee2e6; background: white; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+  .download-btn { font-size: 12px; color: #6c757d; cursor: pointer; border: 1px solid #dee2e6; background: white; padding: 2px 8px; border-radius: 4px; margin-left: 8px; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%236c757d'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 6px center; padding-right: 20px; }
   .download-btn:hover { background: #f8f9fa; color: #333; }
   .stat-card { display: inline-block; background: #f8f9fa; border-radius: 8px; padding: 15px 25px; margin: 5px; text-align: center; }
   .stat-card .value { font-size: 2em; font-weight: bold; color: #212529; }
@@ -47,93 +47,210 @@
 
 <div class="chart-section" id="turnaround">
   <h2>CI Turnaround Time (minutes) <a class="anchor" href="#turnaround">#</a>
-  <button class="download-btn" onclick="downloadChart('turnaround_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('turnaround_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('turnaround_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Time from workflow trigger to last job completed per run. Speed of light = max(build+test) across platforms, assuming full parallelization.</p>
-  <div class="chart-container"><canvas id="turnaround_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="turnaround_canvas" data-title="CI Turnaround Time (minutes)" data-desc="Time from workflow trigger to last job completed per run. Speed of light = max(build+test) across platforms, assuming full parallelization."></canvas></div>
 </div>
 
 <div class="chart-section" id="prsPerDay">
   <h2>Active PRs per Day <a class="anchor" href="#prsPerDay">#</a>
-  <button class="download-btn" onclick="downloadChart('prsPerDay_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('prsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('prsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Unique PR branches with CI activity per day.</p>
-  <div class="chart-container"><canvas id="prsPerDay_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="prsPerDay_canvas" data-title="Active PRs per Day" data-desc="Unique PR branches with CI activity per day."></canvas></div>
 </div>
 
 <div class="chart-section" id="buildTestWait">
   <h2>Build and Test Wait Times (minutes) <a class="anchor" href="#buildTestWait">#</a>
-  <button class="download-btn" onclick="downloadChart('buildTestWait_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('buildTestWait_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('buildTestWait_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Build wait: run trigger to first build started. Test wait: last build completed to first test started (worst platform).</p>
-  <div class="chart-container"><canvas id="buildTestWait_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="buildTestWait_canvas" data-title="Build and Test Wait Times (minutes)" data-desc="Build wait: run trigger to first build started. Test wait: last build completed to first test started (worst platform)."></canvas></div>
 </div>
 
 <div class="chart-section" id="buildByOs">
   <h2>Build Duration by OS (minutes) <a class="anchor" href="#buildByOs">#</a>
-  <button class="download-btn" onclick="downloadChart('buildByOs_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('buildByOs_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('buildByOs_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Average build job duration per day.</p>
-  <div class="chart-container"><canvas id="buildByOs_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="buildByOs_canvas" data-title="Build Duration by OS (minutes)" data-desc="Average build job duration per day."></canvas></div>
 </div>
 
 <div class="chart-section" id="testByOs">
   <h2>Test Duration by OS (minutes) <a class="anchor" href="#testByOs">#</a>
-  <button class="download-btn" onclick="downloadChart('testByOs_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('testByOs_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('testByOs_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Average test job duration per day.</p>
-  <div class="chart-container"><canvas id="testByOs_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="testByOs_canvas" data-title="Test Duration by OS (minutes)" data-desc="Average test job duration per day."></canvas></div>
 </div>
 
 <div class="chart-section" id="jobsPerDay">
   <h2>Jobs per Day <a class="anchor" href="#jobsPerDay">#</a>
-  <button class="download-btn" onclick="downloadChart('jobsPerDay_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('jobsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('jobsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Stacked by conclusion: success, failure, cancelled.</p>
-  <div class="chart-container"><canvas id="jobsPerDay_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="jobsPerDay_canvas" data-title="Jobs per Day" data-desc="Stacked by conclusion: success, failure, cancelled."></canvas></div>
 </div>
 
 <div class="chart-section" id="runsPerDay">
   <h2>Workflow Runs per Day <a class="anchor" href="#runsPerDay">#</a>
-  <button class="download-btn" onclick="downloadChart('runsPerDay_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('runsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('runsPerDay_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Number of distinct workflow runs per day.</p>
-  <div class="chart-container"><canvas id="runsPerDay_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="runsPerDay_canvas" data-title="Workflow Runs per Day" data-desc="Number of distinct workflow runs per day."></canvas></div>
 </div>
 
 <div class="chart-section" id="avgDuration">
   <h2>Average Job Duration (minutes) <a class="anchor" href="#avgDuration">#</a>
-  <button class="download-btn" onclick="downloadChart('avgDuration_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('avgDuration_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('avgDuration_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Mean duration across all jobs per day, with 7-day moving average.</p>
-  <div class="chart-container"><canvas id="avgDuration_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="avgDuration_canvas" data-title="Average Job Duration (minutes)" data-desc="Mean duration across all jobs per day, with 7-day moving average."></canvas></div>
 </div>
 
 <div class="chart-section" id="avgQueue">
   <h2>Average Queue Wait Time (minutes) <a class="anchor" href="#avgQueue">#</a>
-  <button class="download-btn" onclick="downloadChart('avgQueue_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('avgQueue_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('avgQueue_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Mean time jobs spent waiting for a runner before starting.</p>
-  <div class="chart-container"><canvas id="avgQueue_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="avgQueue_canvas" data-title="Average Queue Wait Time (minutes)" data-desc="Mean time jobs spent waiting for a runner before starting."></canvas></div>
 </div>
 
 <div class="chart-section" id="failureRate">
   <h2>Failure Rate (%) <a class="anchor" href="#failureRate">#</a>
-  <button class="download-btn" onclick="downloadChart('failureRate_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('failureRate_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('failureRate_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Percentage of jobs that failed (excludes skipped and cancelled).</p>
-  <div class="chart-container"><canvas id="failureRate_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="failureRate_canvas" data-title="Failure Rate (%)" data-desc="Percentage of jobs that failed (excludes skipped and cancelled)."></canvas></div>
 </div>
 
 <div class="chart-section" id="byGroup">
   <h2>Jobs by Runner Group <a class="anchor" href="#byGroup">#</a>
-  <button class="download-btn" onclick="downloadChart('byGroup_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('byGroup_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('byGroup_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Total jobs per runner group over the full date range.</p>
-  <div class="chart-container" style="max-width:800px"><canvas id="byGroup_canvas"></canvas></div>
+  <div class="chart-container" style="max-width:800px"><canvas id="byGroup_canvas" data-title="Jobs by Runner Group" data-desc="Total jobs per runner group over the full date range."></canvas></div>
 </div>
 
 <div class="chart-section" id="parallelRate">
   <h2>Average Concurrent Runners <a class="anchor" href="#parallelRate">#</a>
-  <button class="download-btn" onclick="downloadChart('parallelRate_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('parallelRate_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('parallelRate_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Average number of self-hosted runners busy at any moment, per group. Computed as total busy time / 24h.</p>
-  <div class="chart-container"><canvas id="parallelRate_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="parallelRate_canvas" data-title="Average Concurrent Runners" data-desc="Average number of self-hosted runners busy at any moment, per group. Computed as total busy time / 24h."></canvas></div>
 </div>
 
 <div class="chart-section" id="queueWait">
   <h2>Queue Wait Time Percentiles (minutes) <a class="anchor" href="#queueWait">#</a>
-  <button class="download-btn" onclick="downloadChart('queueWait_canvas')">PNG</button></h2>
+  <select class="download-btn" onchange="downloadChart('queueWait_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('queueWait_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
 <p style="color:#6c757d;font-size:0.9em">Time each job spent waiting in the CI queue for a runner before execution started. Shows average, median (p50), p90, and p95 per day.</p>
-  <div class="chart-container"><canvas id="queueWait_canvas"></canvas></div>
+  <div class="chart-container"><canvas id="queueWait_canvas" data-title="Queue Wait Time Percentiles (minutes)" data-desc="Time each job spent waiting in the CI queue for a runner before execution started. Shows average, median (p50), p90, and p95 per day."></canvas></div>
 </div>
 
 
@@ -159,13 +276,52 @@ const allTestWait = [0.9, 1.7, 6.6, 0.0, 0.1, 0, 0.0, 6.1, 0.0, 0.0, 1.2, 2.9, 0
 let charts = [];
 
 
-function downloadChart(canvasId) {
+function renderChartPng(canvasId, bg) {
   var canvas = document.getElementById(canvasId);
-  if (!canvas) return;
+  if (!canvas || !bg) return null;
+  var title = canvas.getAttribute('data-title') || '';
+  var desc = canvas.getAttribute('data-desc') || '';
+  var pad = 16;
+  var titleH = title ? 28 : 0;
+  var descH = desc ? 18 : 0;
+  var headerH = titleH + descH + (titleH || descH ? pad : 0);
+  var tmp = document.createElement('canvas');
+  tmp.width = canvas.width + pad * 2;
+  tmp.height = canvas.height + headerH + pad;
+  var ctx = tmp.getContext('2d');
+  if (bg === 'white') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tmp.width, tmp.height);
+  }
+  var y = pad;
+  if (title) {
+    ctx.font = 'bold 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.fillStyle = '#212529';
+    ctx.fillText(title, pad, y + 16);
+    y += titleH;
+  }
+  if (desc) {
+    ctx.font = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.fillStyle = '#6c757d';
+    ctx.fillText(desc, pad, y + 12);
+  }
+  ctx.drawImage(canvas, pad, headerH);
+  return tmp;
+}
+function downloadChart(canvasId, bg) {
+  var tmp = renderChartPng(canvasId, bg);
+  if (!tmp) return;
   var link = document.createElement('a');
   link.download = canvasId.replace('_canvas', '') + '.png';
-  link.href = canvas.toDataURL('image/png', 1.0);
+  link.href = tmp.toDataURL('image/png', 1.0);
   link.click();
+}
+function copyChart(canvasId, bg) {
+  var tmp = renderChartPng(canvasId, bg);
+  if (!tmp) return;
+  tmp.toBlob(function(blob) {
+    navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+  }, 'image/png');
 }
 
 
@@ -315,7 +471,7 @@ new Chart(document.getElementById('parallelRate_canvas').getContext('2d'), {
     labels: ["2025-12-01", "2025-12-02", "2025-12-03", "2025-12-04", "2025-12-05", "2025-12-06", "2025-12-07", "2025-12-08", "2025-12-09", "2025-12-10", "2025-12-11", "2025-12-12", "2025-12-13", "2025-12-15", "2025-12-16", "2025-12-17", "2025-12-18", "2025-12-19", "2025-12-20", "2025-12-22", "2025-12-23", "2025-12-24", "2025-12-25", "2025-12-26", "2025-12-29", "2025-12-30", "2025-12-31", "2026-01-02", "2026-01-04", "2026-01-05", "2026-01-06", "2026-01-07", "2026-01-08", "2026-01-09", "2026-01-10", "2026-01-11", "2026-01-12", "2026-01-13", "2026-01-14", "2026-01-15", "2026-01-16", "2026-01-17", "2026-01-19", "2026-01-20", "2026-01-21", "2026-01-22", "2026-01-23", "2026-01-24", "2026-01-25", "2026-01-26", "2026-01-27", "2026-01-28", "2026-01-29", "2026-01-30", "2026-01-31", "2026-02-01", "2026-02-02", "2026-02-03", "2026-02-04", "2026-02-05", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-09", "2026-02-10", "2026-02-11", "2026-02-12", "2026-02-13", "2026-02-14", "2026-02-15", "2026-02-16", "2026-02-17", "2026-02-18", "2026-02-19", "2026-02-20", "2026-02-21", "2026-02-23", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-27", "2026-02-28", "2026-03-01"],
     datasets: [{"label": "Linux GPU (GCP)", "data": [0.09, 0.11, 0.1, 0.01, 0.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.06, 0.32, 0.08, 0.54, 0.71, 0.43, 0.87, 0.62, 0.16, 0.45, 0.33, 0.24, 0.06, 0.02, 0.07, 0.22, 0.27, 0.05, 0.02, 0.34, 0.42, 0.54, 0.79, 1.0, 0.32, 0.09, 0.84, 1.65, 0.65, 0.74, 0.63, 0.16, 0.2, 1.15, 1.07, 0.68, 0.58, 0.03, 0.06, 1.56, 0.83, 1.14, 1.84, 1.58, 0.29, 0.1, 1.19, 1.41, 1.31, 1.43, 1.08, 0.17, 0.06, 0.92, 1.54, 2.22, 2.48, 1.23, 0.33, 0.07, 1.01, 1.05, 1.26, 1.54, 1.15, 0.14, 2.0, 1.97, 1.86, 2.62, 2.46, 0.34, 0.07], "borderColor": "#0d6efd", "backgroundColor": "#0d6efd33", "fill": true, "tension": 0.1}, {"label": "Windows GPU (GCP)", "data": [1.68, 2.09, 2.58, 2.09, 1.79, 0.52, 0.15, 1.81, 1.7, 1.66, 2.0, 2.68, 0.23, 1.72, 2.31, 1.48, 3.5, 1.9, 0.42, 1.72, 1.11, 0.69, 0.13, 0.08, 0.22, 0.71, 0.87, 0.15, 0.07, 1.1, 1.37, 1.51, 2.03, 2.91, 0.88, 0.28, 2.51, 3.63, 1.58, 1.85, 1.3, 0.41, 0.49, 1.71, 2.47, 1.58, 1.26, 0.0, 0.14, 2.85, 1.91, 2.28, 3.63, 3.36, 0.65, 0.25, 2.42, 3.04, 2.7, 2.95, 3.01, 0.33, 0.36, 2.06, 3.28, 4.61, 5.17, 2.71, 0.69, 0.16, 2.06, 1.95, 2.23, 2.9, 2.84, 0.42, 5.09, 4.72, 4.11, 5.79, 4.76, 0.97, 0.17], "borderColor": "#28a745", "backgroundColor": "#28a74533", "fill": true, "tension": 0.1}]
   },
-  options: {responsive:true, scales:{y:{min:0,title:{display:true,text:'Avg Concurrent Runners'}}}}
+  options: {responsive:true, scales:{y:{stacked:true,min:0,title:{display:true,text:'Avg Concurrent Runners'}}}}
 });
 
 // Queue wait time percentiles
