@@ -39,31 +39,30 @@
 
 <div>
   <div class="stat-card"><div class="value">17</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">7</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">5</div><div class="label">Jobs Running</div></div>
   <div class="stat-card"><div class="value">17</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">5</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">4</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Windows GPU (GCP)</td><td>0</td><td>3</td><td>(org-level)</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>0</td><td>2</td><td>(org-level)</td></tr>
 <tr><td>Windows</td><td>17</td><td>3</td><td>0 idle / 3 total</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>4h 54m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22579102943/job/65405970406" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>push-pzlunuqzznmv</td></tr>
-<tr><td>4h 40m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22579629558/job/65407826211" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-fix-com-if</td></tr>
-<tr><td>3h 25m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22582686160/job/65418900344" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
-<tr><td>2h 58m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22583796055/job/65422926514" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-entry-point-array-return-9428</td></tr>
-<tr><td>2h 50m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22584130656/job/65424109417" target="_blank" rel="noopener noreferrer">build</a></td><td>fix-generic-method-overload-implicit-this</td></tr>
+<tr><td>4h 57m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22579102943/job/65405970406" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>push-pzlunuqzznmv</td></tr>
+<tr><td>4h 43m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22579629558/job/65407826211" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-fix-com-if</td></tr>
+<tr><td>3h 28m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22582686160/job/65418900344" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>jkiviluoto/decouple-slangpy-testing</td></tr>
+<tr><td>3h 01m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22583796055/job/65422926514" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>fix-entry-point-array-return-9428</td></tr>
+<tr><td>2h 53m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22584130656/job/65424109417" target="_blank" rel="noopener noreferrer">build</a></td><td>fix-generic-method-overload-implicit-this</td></tr>
 </table>
 
 
-<h2>24h Load History</h2>
+<h2>Load History</h2>
 
-<div style="margin-bottom:15px">
+<div class="chart-section">
   <label>Time window: </label>
   <select id="historyRange" onchange="updateHistoryRange()">
     <option value="4">Last 4 hours</option>
@@ -71,26 +70,147 @@
     <option value="24" selected>Last 24 hours</option>
   </select>
 </div>
-<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
-  <canvas id="runnerHistory"></canvas>
-</div>
-<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
-  <canvas id="workflowHistory"></canvas>
-</div>
-<div style="position:relative;width:100%;max-width:1200px;margin:20px 0">
-  <canvas id="queueHistory"></canvas>
+<div class="chart-section" id="runnerHistory">
+  <h2>GCP Runner VMs <a class="anchor" href="#runnerHistory">#</a>
+  <select class="download-btn" onchange="downloadChart('runnerHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('runnerHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
+<p style="color:#6c757d;font-size:0.9em">Number of GCP-provisioned runner VMs online per group, sampled every 15 minutes.</p>
+  <div class="chart-container"><canvas id="runnerHistory_canvas" data-title="GCP Runner VMs" data-desc="Number of GCP-provisioned runner VMs online per group, sampled every 15 minutes."></canvas></div>
+</div><div class="chart-section" id="workflowHistory">
+  <h2>Active CI Workflows <a class="anchor" href="#workflowHistory">#</a>
+  <select class="download-btn" onchange="downloadChart('workflowHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('workflowHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
+<p style="color:#6c757d;font-size:0.9em">CI workflow runs currently in progress or queued.</p>
+  <div class="chart-container"><canvas id="workflowHistory_canvas" data-title="Active CI Workflows" data-desc="CI workflow runs currently in progress or queued."></canvas></div>
+</div><div class="chart-section" id="queueHistory">
+  <h2>Job Queue Depth <a class="anchor" href="#queueHistory">#</a>
+  <select class="download-btn" onchange="downloadChart('queueHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Download PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select>
+  <select class="download-btn" onchange="copyChart('queueHistory_canvas', this.value); this.selectedIndex=0">
+    <option value="" disabled selected>Copy PNG</option>
+    <option value="transparent">Transparent</option>
+    <option value="white">White background</option>
+  </select></h2>
+<p style="color:#6c757d;font-size:0.9em">Individual jobs waiting in queue vs. actively running on runners.</p>
+  <div class="chart-container"><canvas id="queueHistory_canvas" data-title="Job Queue Depth" data-desc="Individual jobs waiting in queue vs. actively running on runners."></canvas></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+
+function wrapText(ctx, text, maxWidth) {
+  if (!text) return [];
+  var words = text.split(/\s+/);
+  var lines = [];
+  var cur = '';
+  for (var i = 0; i < words.length; i++) {
+    var test = cur ? (cur + ' ' + words[i]) : words[i];
+    if (ctx.measureText(test).width > maxWidth && cur) {
+      lines.push(cur);
+      cur = words[i];
+    } else {
+      cur = test;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+function renderChartPng(canvasId, bg) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas || !bg) return null;
+  var title = canvas.getAttribute('data-title') || '';
+  var desc = canvas.getAttribute('data-desc') || '';
+  var pad = 16;
+  var titleFont = 'bold 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  var descFont = '12px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  var titleLineH = 22;
+  var descLineH = 16;
+  var maxTextW = canvas.width;
+  var probe = document.createElement('canvas').getContext('2d');
+  probe.font = titleFont;
+  var titleLines = wrapText(probe, title, maxTextW);
+  probe.font = descFont;
+  var descLines = wrapText(probe, desc, maxTextW);
+  var headerH = titleLines.length * titleLineH + descLines.length * descLineH;
+  if (headerH > 0) headerH += pad;
+  var tmp = document.createElement('canvas');
+  tmp.width = canvas.width + pad * 2;
+  tmp.height = canvas.height + headerH + pad;
+  var ctx = tmp.getContext('2d');
+  if (bg === 'white') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tmp.width, tmp.height);
+  }
+  var y = pad;
+  if (titleLines.length) {
+    ctx.font = titleFont;
+    ctx.fillStyle = '#212529';
+    for (var i = 0; i < titleLines.length; i++) {
+      ctx.fillText(titleLines[i], pad, y + titleLineH - 6);
+      y += titleLineH;
+    }
+  }
+  if (descLines.length) {
+    ctx.font = descFont;
+    ctx.fillStyle = '#6c757d';
+    for (var j = 0; j < descLines.length; j++) {
+      ctx.fillText(descLines[j], pad, y + descLineH - 4);
+      y += descLineH;
+    }
+  }
+  ctx.drawImage(canvas, pad, headerH);
+  return tmp;
+}
+function downloadChart(canvasId, bg) {
+  var tmp = renderChartPng(canvasId, bg);
+  if (!tmp) return;
+  var link = document.createElement('a');
+  link.download = canvasId.replace('_canvas', '') + '.png';
+  link.href = tmp.toDataURL('image/png', 1.0);
+  link.click();
+}
+function copyChart(canvasId, bg) {
+  var tmp = renderChartPng(canvasId, bg);
+  if (!tmp) return;
+  if (!window.isSecureContext || !navigator.clipboard || !window.ClipboardItem) {
+    console.error('Clipboard API not available (requires HTTPS or localhost)');
+    downloadChart(canvasId, bg);
+    return;
+  }
+  tmp.toBlob(function(blob) {
+    navigator.clipboard.write([new ClipboardItem({'image/png': blob})]).catch(function(err) {
+      console.error('Failed to copy chart to clipboard:', err);
+    });
+  }, 'image/png');
+}
+
 // All snapshot data
 const allTimestamps = ["18:45", "19:00", "19:15", "19:30", "19:45", "20:00", "20:15", "20:30", "20:45", "21:00", "21:15", "21:30", "21:45", "22:00", "22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:15", "02:15", "03:15", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:30", "11:45", "12:15", "12:45", "13:30", "14:00", "14:30", "15:00", "15:30", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 5, 2, 4, 6, 2, 8, 8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 2, 3, 4, 2, 2, 8, 2, 7, 4, 9, 11, 14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0]};
-const allRunsInProgress = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 3, 2, 8, 4, 3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 3, 9, 5, 3, 3, 3, 12, 5, 10, 5, 10, 7, 10, 9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 5];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 5, 2, 4, 6, 2, 8, 8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 2, 3, 4, 2, 2, 8, 2, 7, 4, 9, 11, 14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0]};
+const allRunsInProgress = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 3, 2, 8, 4, 3, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 2, 3, 9, 5, 3, 3, 3, 12, 5, 10, 5, 10, 7, 10, 9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 4];
 const allRunsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 5, 0, 5, 5, 5, 6, 26, 31, 34, 44, 48, 48, 39, 33, 31, 28, 27, 24, 17];
 const allJobsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 3, 0, 0, 0, 0, 6, 0, 8, 7, 6, 15, 61, 47, 54, 76, 82, 66, 41, 34, 32, 33, 27, 24, 17];
-const allJobsRunning = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 11, 4, 16, 8, 5, 1, 1, 1, 1, 3, 1, 1, 1, 1, 8, 2, 3, 16, 13, 5, 6, 10, 26, 16, 23, 20, 27, 23, 43, 37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 7];
+const allJobsRunning = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 11, 4, 16, 8, 5, 1, 1, 1, 1, 3, 1, 1, 1, 1, 8, 2, 3, 16, 13, 5, 6, 10, 26, 16, 23, 20, 27, 23, 43, 37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 5];
 
-const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows GPU (GCP)": "#28a745"};
+const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
 
 let charts = {};
@@ -123,18 +243,17 @@ function buildCharts(hours) {
       tension: 0.3,
     });
   }
-  charts.runner = new Chart(document.getElementById('runnerHistory').getContext('2d'), {
+  charts.runner = new Chart(document.getElementById('runnerHistory_canvas').getContext('2d'), {
     type: 'line',
     data: { labels: displayLabels, datasets: runnerDatasets },
     options: {
       responsive: true,
-      scales: { y: { min: 0, stacked: true, title: { display: true, text: 'GCP VMs Online' } } },
-      plugins: { title: { display: true, text: 'GCP Runner VMs' } }
+      scales: { y: { min: 0, stacked: true, title: { display: true, text: 'GCP VMs Online' } } }
     }
   });
 
   // Workflow runs
-  charts.workflow = new Chart(document.getElementById('workflowHistory').getContext('2d'), {
+  charts.workflow = new Chart(document.getElementById('workflowHistory_canvas').getContext('2d'), {
     type: 'line',
     data: {
       labels: displayLabels,
@@ -145,13 +264,12 @@ function buildCharts(hours) {
     },
     options: {
       responsive: true,
-      scales: { y: { min: 0, title: { display: true, text: 'Workflow Runs' } } },
-      plugins: { title: { display: true, text: 'Active CI Workflows' } }
+      scales: { y: { min: 0, title: { display: true, text: 'Workflow Runs' } } }
     }
   });
 
   // Job queue
-  charts.queue = new Chart(document.getElementById('queueHistory').getContext('2d'), {
+  charts.queue = new Chart(document.getElementById('queueHistory_canvas').getContext('2d'), {
     type: 'line',
     data: {
       labels: displayLabels,
@@ -162,8 +280,7 @@ function buildCharts(hours) {
     },
     options: {
       responsive: true,
-      scales: { y: { min: 0, title: { display: true, text: 'Jobs' } } },
-      plugins: { title: { display: true, text: 'Job Queue Depth' } }
+      scales: { y: { min: 0, title: { display: true, text: 'Jobs' } } }
     }
   });
 }
