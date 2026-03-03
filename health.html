@@ -33,21 +33,20 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-03-03 12:51 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-03-03 13:32 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
   <div class="stat-card"><div class="value">0</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">3</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">Jobs Running</div></div>
   <div class="stat-card"><div class="value">0</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">2</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Windows GPU (GCP)</td><td>0</td><td>2</td><td>4 idle / 5 total</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
+<tr><td>Windows (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
 </table>
 
 
@@ -194,12 +193,12 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["13:30", "14:00", "14:30", "15:00", "15:30", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "20:30", "20:45", "21:15", "21:45", "22:00", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:30", "02:30", "03:30", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:00", "12:15", "12:45"];
-const allRunnerData = {"Linux GPU (GCP)": [8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0, 0, 0, 6, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 9, 4, 9, 2, 0, 0, 2, 0, 0, 0, 1, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 3, 2, 1, 2, 0, 0, 0, 0, 1, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 2, 3, 3, 6, 0, 0, 0, 2, 2, 0, 2, 2, 0], "Windows GPU (GCP)": [14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0, 0, 0, 12, 7, 0, 6, 3, 2, 4, 2, 0, 0, 0, 1, 1, 0, 5, 0, 0, 0, 0, 0, 0, 3, 3, 10, 9, 9, 5, 1, 1, 2, 1, 0, 0, 0, 5]};
-const allRunsInProgress = [9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 4, 9, 7, 7, 6, 10, 4, 5, 7, 6, 5, 4, 4, 8, 7, 4, 5, 4, 1, 2, 1, 1, 1, 4, 3, 7, 11, 9, 11, 5, 5, 4, 5, 6, 1, 5, 2, 2];
-const allRunsQueued = [31, 34, 44, 48, 48, 39, 33, 31, 28, 27, 24, 17, 25, 27, 31, 34, 32, 30, 24, 19, 15, 11, 7, 5, 12, 9, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 8, 12, 18, 29, 25, 11, 4, 7, 1, 0, 0, 1, 0];
-const allJobsQueued = [47, 54, 76, 82, 66, 41, 34, 32, 33, 27, 24, 17, 27, 33, 43, 40, 42, 44, 27, 22, 15, 11, 7, 5, 14, 15, 0, 4, 0, 0, 0, 0, 0, 0, 1, 0, 13, 17, 23, 45, 31, 11, 4, 9, 1, 0, 0, 3, 0];
-const allJobsRunning = [37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 5, 29, 31, 35, 19, 24, 20, 8, 20, 8, 6, 4, 4, 22, 19, 4, 14, 7, 1, 2, 1, 1, 1, 14, 6, 26, 41, 38, 47, 14, 5, 4, 13, 11, 1, 13, 6, 3];
+const allTimestamps = ["13:30", "14:00", "14:30", "15:00", "15:30", "15:45", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45", "19:15", "19:45", "20:15", "20:30", "20:45", "21:15", "21:45", "22:00", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:30", "02:30", "03:30", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:00", "12:15", "12:45", "13:30"];
+const allRunnerData = {"Linux GPU (GCP)": [8, 6, 6, 6, 0, 2, 4, 3, 0, 0, 0, 0, 0, 0, 6, 0, 0, 5, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 9, 4, 9, 2, 0, 0, 2, 0, 0, 0, 1, 0, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 3, 2, 1, 2, 0, 0, 0, 0, 1, 2, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 2, 3, 3, 6, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0], "Windows GPU (GCP)": [14, 11, 9, 15, 10, 13, 14, 4, 0, 0, 0, 0, 0, 0, 12, 7, 0, 6, 3, 2, 4, 2, 0, 0, 0, 1, 1, 0, 5, 0, 0, 0, 0, 0, 0, 3, 3, 10, 9, 9, 5, 1, 1, 2, 1, 0, 0, 0, 5, 4]};
+const allRunsInProgress = [9, 9, 7, 6, 7, 14, 11, 9, 6, 10, 8, 4, 9, 7, 7, 6, 10, 4, 5, 7, 6, 5, 4, 4, 8, 7, 4, 5, 4, 1, 2, 1, 1, 1, 4, 3, 7, 11, 9, 11, 5, 5, 4, 5, 6, 1, 5, 2, 2, 1];
+const allRunsQueued = [31, 34, 44, 48, 48, 39, 33, 31, 28, 27, 24, 17, 25, 27, 31, 34, 32, 30, 24, 19, 15, 11, 7, 5, 12, 9, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 8, 12, 18, 29, 25, 11, 4, 7, 1, 0, 0, 1, 0, 0];
+const allJobsQueued = [47, 54, 76, 82, 66, 41, 34, 32, 33, 27, 24, 17, 27, 33, 43, 40, 42, 44, 27, 22, 15, 11, 7, 5, 14, 15, 0, 4, 0, 0, 0, 0, 0, 0, 1, 0, 13, 17, 23, 45, 31, 11, 4, 9, 1, 0, 0, 3, 0, 0];
+const allJobsRunning = [37, 42, 41, 32, 27, 27, 25, 32, 16, 19, 18, 5, 29, 31, 35, 19, 24, 20, 8, 20, 8, 6, 4, 4, 22, 19, 4, 14, 7, 1, 2, 1, 1, 1, 14, 6, 26, 41, 38, 47, 14, 5, 4, 13, 11, 1, 13, 6, 3, 1];
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
 const pointsPerHour = 4; // 15-min intervals
@@ -291,12 +290,11 @@ buildCharts(24);
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
 <h3>Windows Build (GCP) (0/0 busy)</h3>
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
-<h3>Windows GPU (GCP) (1/5 busy)</h3>
+<h3>Windows GPU (GCP) (0/4 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
 <tr><td>win-test-166b3de8</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 <tr><td>win-test-32f6839d</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 <tr><td>win-test-574f31c0</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
-<tr><td>win-test-9b91d7b4</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22622059876/job/65552259460" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (fix-slang-enable-asan-1)</a></td></tr>
 <tr><td>win-test-f1e10080</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 </table>
 
@@ -309,7 +307,11 @@ buildCharts(24);
 
 
 <h2>Recent CI Failures</h2>
-<p>No recent CI failures.</p>
+<table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22622059876" target="_blank" rel="noopener noreferrer">fix-slang-enable-asan-1</a></td><td>jvepsalainen-nv</td><td>2026-03-03 13:02</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/22605315822" target="_blank" rel="noopener noreferrer">fix/clean-up-option-check</a></td><td>jkwak-work</td><td>2026-03-03 12:58</td></tr>
+</table>
+
 
 </div>
 </body>
