@@ -33,35 +33,35 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-03-10 10:50 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-03-10 11:19 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">15</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">21</div><div class="label">Jobs Queued</div></div>
   <div class="stat-card"><div class="value">22</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">10</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">9</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">11</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Linux GPU (GCP)</td><td>3</td><td>3</td><td>0 idle / 3 total</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>3</td><td>0</td><td>(org-level)</td></tr>
+<tr><td>Linux GPU (GCP)</td><td>6</td><td>5</td><td>0 idle / 5 total</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>7</td><td>4</td><td>0 idle / 4 total</td></tr>
 <tr><td>Windows</td><td>8</td><td>3</td><td>0 idle / 3 total</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>7</td><td>(cloud)</td></tr>
-<tr><td>Linux ARM64 (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
-<tr><td>macOS (GH)</td><td>1</td><td>5</td><td>(cloud)</td></tr>
-<tr><td>Windows Build (GCP)</td><td>0</td><td>3</td><td>0 idle / 3 total</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>4</td><td>(cloud)</td></tr>
+<tr><td>macOS (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
+<tr><td>Windows (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
+<tr><td>Windows Build (GCP)</td><td>0</td><td>2</td><td>0 idle / 2 total</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>22m 37s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040494/job/66437117819" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>9691-deprecate-modifier-between-struct-and-identifier</td></tr>
-<tr><td>22m 37s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040514/job/66437117877" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>9691-deprecate-modifier-between-struct-and-identifier</td></tr>
-<tr><td>22m 37s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040502/job/66437117811" target="_blank" rel="noopener noreferrer">build</a></td><td>9691-deprecate-modifier-between-struct-and-identifier</td></tr>
-<tr><td>6m 12s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898648336/job/66439216871" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-N-bit-types-vectors</td></tr>
-<tr><td>6m 12s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898648352/job/66439216779" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-N-bit-types-vectors</td></tr>
+<tr><td>51m 25s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040494/job/66437117819" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>9691-deprecate-modifier-between-struct-and-identifier</td></tr>
+<tr><td>29m 40s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843371/job/66439888380" target="_blank" rel="noopener noreferrer">build</a></td><td>ci-add-sascha-willems</td></tr>
+<tr><td>16m 11s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338377/job/66441568330" target="_blank" rel="noopener noreferrer">build</a></td><td>dyn-dispatch-test-descriptor-handle</td></tr>
+<tr><td>16m 10s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338353/job/66441568732" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-descriptor-handle</td></tr>
+<tr><td>16m 10s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338361/job/66441568823" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>dyn-dispatch-test-descriptor-handle</td></tr>
 </table>
 
 
@@ -247,19 +247,19 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["11:15", "11:45", "12:15", "12:45", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "19:45", "20:15", "20:45", "21:15", "21:30", "21:45", "22:00", "22:30", "22:45", "23:00", "23:30", "23:45", "00:30", "01:15", "02:00", "03:00", "04:00", "04:45", "05:15", "05:45", "06:15", "06:45", "07:15", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45"];
-const allRunnerData = {"Linux GPU (GCP)": [1, 0, 0, 0, 5, 7, 3, 4, 0, 2, 0, 3, 5, 0, 0, 0, 5, 2, 2, 1, 1, 2, 0, 0, 0, 0, 0, 4, 6, 1, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 2, 1, 0, 1, 3], "Windows Build (GCP)": [0, 0, 0, 2, 2, 3, 0, 2, 2, 0, 2, 0, 2, 0, 0, 2, 1, 2, 3, 0, 2, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 2, 3], "Windows GPU (GCP)": [14, 2, 0, 0, 4, 9, 7, 5, 0, 5, 1, 5, 2, 2, 0, 0, 5, 4, 5, 4, 4, 7, 2, 0, 0, 0, 0, 1, 9, 2, 6, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 3, 3, 0, 0]};
-const allRunsInProgress = [9, 6, 1, 11, 13, 4, 8, 5, 4, 2, 3, 3, 4, 2, 1, 2, 3, 9, 8, 4, 10, 6, 3, 1, 1, 1, 5, 7, 10, 2, 4, 4, 9, 2, 1, 1, 1, 1, 1, 2, 1, 3, 3, 8, 4, 10, 9];
-const allRunsQueued = [11, 1, 0, 5, 10, 7, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 4, 5, 0, 4, 0, 0, 0, 0, 0, 0, 3, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 4, 10];
-const allJobsQueued = [12, 1, 0, 14, 16, 34, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 2, 4, 5, 0, 4, 0, 0, 0, 0, 0, 0, 7, 2, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 4, 15];
-const allJobsRunning = [25, 6, 1, 23, 25, 31, 13, 14, 6, 10, 4, 12, 13, 3, 1, 9, 13, 21, 28, 8, 20, 14, 4, 1, 1, 1, 15, 20, 26, 4, 14, 11, 15, 2, 1, 1, 1, 1, 1, 2, 9, 5, 8, 19, 6, 21, 22];
+const allTimestamps = ["11:15", "11:45", "12:15", "12:45", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "19:45", "20:15", "20:45", "21:15", "21:30", "21:45", "22:00", "22:30", "22:45", "23:00", "23:30", "23:45", "00:30", "01:15", "02:00", "03:00", "04:00", "04:45", "05:15", "05:45", "06:15", "06:45", "07:15", "07:45", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15"];
+const allRunnerData = {"Linux GPU (GCP)": [1, 0, 0, 0, 5, 7, 3, 4, 0, 2, 0, 3, 5, 0, 0, 0, 5, 2, 2, 1, 1, 2, 0, 0, 0, 0, 0, 4, 6, 1, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 2, 1, 0, 1, 3, 5], "Windows Build (GCP)": [0, 0, 0, 2, 2, 3, 0, 2, 2, 0, 2, 0, 2, 0, 0, 2, 1, 2, 3, 0, 2, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 2, 3, 2], "Windows GPU (GCP)": [14, 2, 0, 0, 4, 9, 7, 5, 0, 5, 1, 5, 2, 2, 0, 0, 5, 4, 5, 4, 4, 7, 2, 0, 0, 0, 0, 1, 9, 2, 6, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 3, 3, 0, 0, 4]};
+const allRunsInProgress = [9, 6, 1, 11, 13, 4, 8, 5, 4, 2, 3, 3, 4, 2, 1, 2, 3, 9, 8, 4, 10, 6, 3, 1, 1, 1, 5, 7, 10, 2, 4, 4, 9, 2, 1, 1, 1, 1, 1, 2, 1, 3, 3, 8, 4, 10, 9, 6];
+const allRunsQueued = [11, 1, 0, 5, 10, 7, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 4, 5, 0, 4, 0, 0, 0, 0, 0, 0, 3, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 4, 10, 11];
+const allJobsQueued = [12, 1, 0, 14, 16, 34, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 2, 4, 5, 0, 4, 0, 0, 0, 0, 0, 0, 7, 2, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 4, 15, 21];
+const allJobsRunning = [25, 6, 1, 23, 25, 31, 13, 14, 6, 10, 4, 12, 13, 3, 1, 9, 13, 21, 28, 8, 20, 14, 4, 1, 1, 1, 15, 20, 26, 4, 14, 11, 15, 2, 1, 1, 1, 1, 1, 2, 9, 5, 8, 19, 6, 21, 22, 22];
 
-const gpuRegionData = {"us-central1": [4, 0, 0, 0, 4, 7, 4, 3, 0, 2, 1, 3, 3, 0, 0, 0, 5, 2, 2, 2, 1, 3, 0, 0, 0, 0, 0, 2, 8, 1, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 1, 1, 2], "us-east1": [6, 1, 0, 1, 3, 7, 4, 3, 0, 3, 0, 4, 3, 1, 0, 0, 4, 3, 1, 1, 2, 3, 0, 0, 0, 0, 0, 2, 6, 1, 5, 1, 4, 0, 0, 0, 0, 0, 0, 0, 2, 1, 3, 1, 2, 0, 3], "us-west1": [4, 0, 0, 0, 3, 7, 4, 3, 0, 3, 0, 3, 2, 1, 0, 0, 5, 2, 5, 2, 2, 4, 2, 0, 0, 0, 0, 2, 4, 1, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 2, 0, 1, 2]};
+const gpuRegionData = {"us-central1": [4, 0, 0, 0, 4, 7, 4, 3, 0, 2, 1, 3, 3, 0, 0, 0, 5, 2, 2, 2, 1, 3, 0, 0, 0, 0, 0, 2, 8, 1, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 2, 1, 1, 2, 4], "us-east1": [6, 1, 0, 1, 3, 7, 4, 3, 0, 3, 0, 4, 3, 1, 0, 0, 4, 3, 1, 1, 2, 3, 0, 0, 0, 0, 0, 2, 6, 1, 5, 1, 4, 0, 0, 0, 0, 0, 0, 0, 2, 1, 3, 1, 2, 0, 3, 5], "us-west1": [4, 0, 0, 0, 3, 7, 4, 3, 0, 3, 0, 3, 2, 1, 0, 0, 5, 2, 5, 2, 2, 4, 2, 0, 0, 0, 0, 2, 4, 1, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 2, 0, 1, 2, 3]};
 const gpuQuotaLimit = 24;
 const gpuRegionColors = {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"};
 
-const mqSuccessData = [0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 7, 7, 7, 7, 7, 9, 9, 8, 8];
-const mqFailureData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const mqSuccessData = [0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 0, 7, 7, 7, 7, 7, 9, 9, 8, 8, 8];
+const mqFailureData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const hasMqSnapshots = true;
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
@@ -419,26 +419,32 @@ buildCharts(24);
 
 
 <h2>Self-Hosted Runner Status</h2>
-<h3>Linux GPU (GCP) (3/3 busy)</h3>
+<h3>Linux GPU (GCP) (5/5 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>linux-test-26937e91</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040473/job/66438701808" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (9691-deprecate-modifier-between-struct-and-identifier)</a></td></tr>
-<tr><td>linux-test-54dcc149</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040473/job/66438790527" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slang (9691-deprecate-modifier-between-struct-and-identifier)</a></td></tr>
-<tr><td>linux-test-c05b8d52</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22897772198/job/66437251516" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slangpy (ci-add-sascha-willems)</a></td></tr>
+<tr><td>linux-test-3dfaf2be</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899410386/job/66442547175" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slang (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
+<tr><td>linux-test-7d396667</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899410386/job/66442660048" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slangpy (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
+<tr><td>linux-test-a1691ef5</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899410386/job/66442660018" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
+<tr><td>linux-test-d6b28f4c</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843470/job/66441879078" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (ci-add-sascha-willems)</a></td></tr>
+<tr><td>linux-test-dea1f78b</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899410386/job/66442659988" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang-rhi (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
 </table>
-<h3>Windows Build (GCP) (3/3 busy)</h3>
+<h3>Windows Build (GCP) (2/2 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-build-8bd034a3</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898648420/job/66439294801" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
-<tr><td>win-build-8f355424</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898648420/job/66439294779" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu / build (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
-<tr><td>win-build-e5ac072b</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040473/job/66437140148" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu / build (9691-deprecate-modifier-between-struct-and-identifier)</a></td></tr>
+<tr><td>win-build-12659317</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338436/job/66442620718" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build (dyn-dispatch-test-descriptor-handle)</a></td></tr>
+<tr><td>win-build-cba2360c</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338436/job/66442620689" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu / build (dyn-dispatch-test-descriptor-handle)</a></td></tr>
 </table>
-<h3>Windows GPU (GCP) (0/0 busy)</h3>
-<p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
+<h3>Windows GPU (GCP) (4/4 busy)</h3>
+<table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
+<tr><td>win-test-17941756</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899410386/job/66443280209" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu / test-slang-rhi (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
+<tr><td>win-test-4757f1a6</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040473/job/66439872920" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slangpy (9691-deprecate-modifier-between-struct-and-identifier)</a></td></tr>
+<tr><td>win-test-6e522717</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843470/job/66442446477" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu / test-slang (ci-add-sascha-willems)</a></td></tr>
+<tr><td>win-test-80d73a67</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843470/job/66442843696" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slangpy (ci-add-sascha-willems)</a></td></tr>
+</table>
 
 <h3>Other Runners</h3>
 <table><tr><th>Runner</th><th>Group</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898648346/job/66439329740" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (dyn-dispatch-test-N-bit-types-vectors)</a></td></tr>
-<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843407/job/66439888851" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (ci-add-sascha-willems)</a></td></tr>
-<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843502/job/66439925375" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (ci-add-sascha-willems)</a></td></tr>
+<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898843359/job/66439888258" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (ci-add-sascha-willems)</a></td></tr>
+<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22898040514/job/66437117877" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (9691-deprecate-modifier-between-struct-and-identifier)</a></td></tr>
+<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/22899338348/job/66441568851" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (dyn-dispatch-test-descriptor-handle)</a></td></tr>
 </table>
 
 
