@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "date": "2026-03-13",
+      "severity": "warning",
+      "title": "Merge queue was blocked for ~16 hours due to SlangPy Tests rollout",
+      "body": "Between Mar 12 15:13 UTC and Mar 13 ~10:30 UTC, no PRs could enter the merge queue. The 'SlangPy Tests' required status check was added with source set to 'GitHub Actions', but the status is posted via the commit status API (not a check run), so GitHub didn't match them. Resolved by changing branch protection to accept 'any source'. Additionally, PRs opened before the change had no status and were manually triggered.",
+      "author": "jkiviluoto-nv"
+    },
+    {
       "date": "2026-03-12",
       "severity": "info",
       "title": "SlangPy tests now run via cross-repo dispatch",
