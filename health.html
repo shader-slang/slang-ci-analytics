@@ -33,20 +33,29 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-03-13 18:20 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-03-13 18:50 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">0</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">1</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">0</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">2</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">9</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>4</td><td>(cloud)</td></tr>
+<tr><td>Linux ARM64 (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
+<tr><td>macOS (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
+<tr><td>Windows Build (GCP)</td><td>0</td><td>1</td><td>0 idle / 1 total</td></tr>
+<tr><td>Other</td><td>1</td><td>0</td><td>(cloud)</td></tr>
+</table>
+
+<h3>Longest Waiting Jobs</h3>
+<table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
+<tr><td>5m 14s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/23065573344/job/67002940232" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build</a></td><td>gh-readonly-queue/master/pr-10500-475396e4211a54ccef58a90785c0ad75eb5ab411</td></tr>
 </table>
 
 
@@ -56,7 +65,7 @@
   <div class="stat-card"><div class="value">2</div><div class="label">Passed (24h)</div></div>
   <div class="stat-card"><div class="value" style="color:#dc3545">2</div><div class="label">Failed (24h)</div></div>
   <div class="stat-card"><div class="value">1</div><div class="label">Cancelled (24h)</div></div>
-  <div class="stat-card"><div class="value">0</div><div class="label">In Progress</div></div>
+  <div class="stat-card"><div class="value">1</div><div class="label">In Progress</div></div>
   <div class="stat-card"><div class="value">50%</div><div class="label">Failure Rate</div></div>
 </div>
 
@@ -238,19 +247,19 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["18:30", "19:00", "19:30", "19:45", "20:15", "20:45", "21:15", "21:45", "22:00", "22:15", "22:45", "23:00", "23:30", "23:45", "00:45", "01:30", "02:30", "03:30", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:15", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:15", "16:45", "17:15", "17:45", "18:15"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 2, 2, 1, 1, 0, 0, 3, 4, 3, 3, 2, 7, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 5, 0, 0], "Windows Build (GCP)": [2, 2, 0, 4, 2, 0, 2, 0, 2, 3, 8, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0], "Windows GPU (GCP)": [0, 4, 3, 4, 3, 1, 0, 5, 1, 4, 6, 6, 8, 1, 0, 2, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0]};
-const allRunsInProgress = [7, 7, 6, 8, 11, 4, 9, 6, 7, 12, 17, 12, 7, 5, 3, 3, 6, 1, 1, 1, 1, 5, 3, 2, 3, 1, 3, 2, 1, 1, 3, 1, 3, 2, 1, 3, 1, 2, 2, 2, 2, 6, 3, 3, 2];
-const allRunsQueued = [1, 4, 0, 5, 5, 0, 0, 3, 2, 9, 22, 20, 19, 8, 1, 0, 7, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0];
-const allJobsQueued = [1, 5, 0, 5, 5, 0, 0, 3, 2, 10, 31, 23, 25, 8, 1, 0, 9, 0, 0, 0, 0, 3, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0];
-const allJobsRunning = [15, 15, 9, 21, 21, 4, 17, 17, 17, 34, 51, 36, 31, 5, 3, 4, 21, 1, 1, 1, 1, 12, 5, 2, 3, 1, 9, 2, 1, 1, 8, 1, 4, 2, 8, 4, 1, 3, 2, 2, 2, 18, 9, 3, 1];
+const allTimestamps = ["19:00", "19:30", "19:45", "20:15", "20:45", "21:15", "21:45", "22:00", "22:15", "22:45", "23:00", "23:30", "23:45", "00:45", "01:30", "02:30", "03:30", "04:15", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:15", "08:45", "09:15", "09:45", "10:15", "10:45", "11:15", "11:45", "12:15", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:15", "16:45", "17:15", "17:45", "18:15", "18:45"];
+const allRunnerData = {"Linux GPU (GCP)": [2, 2, 1, 1, 0, 0, 3, 4, 3, 3, 2, 7, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 5, 0, 0, 0], "Windows Build (GCP)": [2, 0, 4, 2, 0, 2, 0, 2, 3, 8, 4, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1], "Windows GPU (GCP)": [4, 3, 4, 3, 1, 0, 5, 1, 4, 6, 6, 8, 1, 0, 2, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0]};
+const allRunsInProgress = [7, 6, 8, 11, 4, 9, 6, 7, 12, 17, 12, 7, 5, 3, 3, 6, 1, 1, 1, 1, 5, 3, 2, 3, 1, 3, 2, 1, 1, 3, 1, 3, 2, 1, 3, 1, 2, 2, 2, 2, 6, 3, 3, 2, 1];
+const allRunsQueued = [4, 0, 5, 5, 0, 0, 3, 2, 9, 22, 20, 19, 8, 1, 0, 7, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 1];
+const allJobsQueued = [5, 0, 5, 5, 0, 0, 3, 2, 10, 31, 23, 25, 8, 1, 0, 9, 0, 0, 0, 0, 3, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 1];
+const allJobsRunning = [15, 9, 21, 21, 4, 17, 17, 17, 34, 51, 36, 31, 5, 3, 4, 21, 1, 1, 1, 1, 12, 5, 2, 3, 1, 9, 2, 1, 1, 8, 1, 4, 2, 8, 4, 1, 3, 2, 2, 2, 18, 9, 3, 1, 9];
 
-const gpuRegionData = {"us-central1": [0, 3, 2, 1, 3, 0, 0, 3, 2, 3, 3, 1, 5, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 1, 0], "us-east1": [0, 3, 2, 2, 0, 1, 0, 4, 2, 3, 3, 3, 6, 1, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 0, 0], "us-west1": [0, 3, 2, 2, 2, 0, 0, 3, 1, 3, 4, 4, 6, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0]};
+const gpuRegionData = {"us-central1": [3, 2, 1, 3, 0, 0, 3, 2, 3, 3, 1, 5, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0], "us-east1": [3, 2, 2, 0, 1, 0, 4, 2, 3, 3, 3, 6, 1, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 2, 0, 0, 0], "us-west1": [3, 2, 2, 2, 0, 0, 3, 1, 3, 4, 4, 6, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0]};
 const gpuQuotaLimit = 24;
 const gpuRegionColors = {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"};
 
-const mqSuccessData = [12, 12, 12, 12, 11, 11, 9, 9, 8, 8, 7, 7, 7, 7, 7, 7, 7, 7, 5, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 2];
-const mqFailureData = [14, 14, 14, 14, 14, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 11, 11, 6, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+const mqSuccessData = [12, 12, 12, 11, 11, 9, 9, 8, 8, 7, 7, 7, 7, 7, 7, 7, 7, 5, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2];
+const mqFailureData = [14, 14, 14, 14, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 11, 11, 6, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
 const hasMqSnapshots = true;
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
@@ -412,8 +421,10 @@ buildCharts(24);
 <h2>Self-Hosted Runner Status</h2>
 <h3>Linux GPU (GCP) (0/0 busy)</h3>
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
-<h3>Windows Build (GCP) (0/0 busy)</h3>
-<p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
+<h3>Windows Build (GCP) (1/1 busy)</h3>
+<table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
+<tr><td>win-build-78c6d2f5</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/23065573344/job/67002940207" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu / build (gh-readonly-queue/master/pr-10500-475396e4211a54ccef58a90785c0ad75eb5ab411)</a></td></tr>
+</table>
 <h3>Windows GPU (GCP) (0/0 busy)</h3>
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
 
