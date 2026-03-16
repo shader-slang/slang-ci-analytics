@@ -34,11 +34,11 @@
 <h1>CI Status</h1>
 <p style="color:#6c757d">Known issues and maintenance notices. Edit <code>status_updates.json</code> in the
 <a href="https://github.com/shader-slang/slang-ci-analytics">analytics repo</a> to update.</p>
-<div style="border-left:4px solid #fd7e14;background:#fff3cd;padding:15px 20px;margin-bottom:15px;border-radius:4px">
-  <span style="background:#fd7e14;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em;text-transform:uppercase">warning</span>
-  <strong style="margin-left:10px;font-size:1.1em">Merge queue was blocked for ~16 hours due to SlangPy Tests rollout</strong>
-  <div style="color:#6c757d;font-size:0.85em;margin-top:4px">2026-03-13 &mdash; jkiviluoto-nv</div>
-  <div style="margin-top:8px">Between Mar 12 15:13 UTC and Mar 13 ~10:30 UTC, no PRs could enter the merge queue. The &#x27;SlangPy Tests&#x27; required status check was added with source set to &#x27;GitHub Actions&#x27;, but the status is posted via the commit status API (not a check run), so GitHub didn&#x27;t match them. Resolved by changing branch protection to accept &#x27;any source&#x27;. Additionally, PRs opened before the change had no status and were manually triggered.</div>
+<div style="border-left:4px solid #0d6efd;background:#cfe2ff;padding:15px 20px;margin-bottom:15px;border-radius:4px">
+  <span style="background:#0d6efd;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em;text-transform:uppercase">info</span>
+  <strong style="margin-left:10px;font-size:1.1em">SlangPy merge queue fix deployed</strong>
+  <div style="color:#6c757d;font-size:0.85em;margin-top:4px">2026-03-16 &mdash; jkiviluoto-nv</div>
+  <div style="margin-top:8px">SlangPy Tests now run correctly in the merge queue. The trigger workflow was missing a merge_group event handler, causing PRs to be ejected after a 2-hour timeout. Fixed in slang#10534 and slangpy#875.</div>
 </div>
 <div style="border-left:4px solid #0d6efd;background:#cfe2ff;padding:15px 20px;margin-bottom:15px;border-radius:4px">
   <span style="background:#0d6efd;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em;text-transform:uppercase">info</span>
