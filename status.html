@@ -36,6 +36,12 @@
 <a href="https://github.com/shader-slang/slang-ci-analytics">analytics repo</a> to update.</p>
 <div style="border-left:4px solid #0d6efd;background:#cfe2ff;padding:15px 20px;margin-bottom:15px;border-radius:4px">
   <span style="background:#0d6efd;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em;text-transform:uppercase">info</span>
+  <strong style="margin-left:10px;font-size:1.1em">Windows debug build fixed (proxy DLL link race)</strong>
+  <div style="color:#6c757d;font-size:0.85em;margin-top:4px">2026-04-01 &mdash; jkiviluoto-nv</div>
+  <div style="margin-top:8px">PR #10684 (remove slang-binaries) exposed a latent link race between slang-proxy (slang.dll) and slang-dispatcher (slang.exe) — both have OUTPUT_NAME slang, causing .ilk and .pdb collisions when Ninja parallelizes the link steps. Fixed by PR #10698 (/INCREMENTAL:NO) and PR #10702 (PDB_NAME slang-proxy). Sccache populate workflow should also recover.</div>
+</div>
+<div style="border-left:4px solid #0d6efd;background:#cfe2ff;padding:15px 20px;margin-bottom:15px;border-radius:4px">
+  <span style="background:#0d6efd;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em;text-transform:uppercase">info</span>
   <strong style="margin-left:10px;font-size:1.1em">Linux GPU persistence mode enabled</strong>
   <div style="color:#6c757d;font-size:0.85em;margin-top:4px">2026-03-25 &mdash; jkiviluoto-nv</div>
   <div style="margin-top:8px">Linux CI runner VMs now enable GPU persistence mode (nvidia-smi -pm 1) at boot. This prevents NVML state corruption that caused intermittent &#x27;Failed to initialize NVML: Unknown Error&#x27; during multi-server GPU test runs in Docker containers. Three other CI crash sources were also fixed: Mesa/LLVM removal from container (#10618, #10646), DeviceCache cleanup (#10595), and CountOfIntVal null guard (#10535). See #10596 for full investigation.</div>
