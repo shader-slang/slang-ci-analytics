@@ -33,31 +33,31 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-04-06 20:49 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-04-06 21:19 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">20</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">7</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">20</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">17</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">5</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">17</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">5</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
-<tr><td>Windows GPU (GCP)</td><td>0</td><td>3</td><td>0 idle / 3 total</td></tr>
-<tr><td>Windows</td><td>20</td><td>3</td><td>0 idle / 3 total</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>0</td><td>1</td><td>0 idle / 1 total</td></tr>
+<tr><td>Windows</td><td>17</td><td>3</td><td>0 idle / 3 total</td></tr>
 <tr><td>Linux (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>3h 25m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042221354/job/70116560107" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>autodiff-core-diagnostics</td></tr>
-<tr><td>3h 25m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042242269/job/70116632541" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>autodiff-custom-deriv-diagnostics</td></tr>
-<tr><td>3h 18m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042485477/job/70117487502" target="_blank" rel="noopener noreferrer">build</a></td><td>autodiff-dynamic-dispatch-tests</td></tr>
-<tr><td>3h 18m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042485501/job/70117487029" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>autodiff-dynamic-dispatch-tests</td></tr>
-<tr><td>3h 05m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24043001989/job/70119247471" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>has-diff-type-info-constraint</td></tr>
+<tr><td>3h 55m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042242269/job/70116632541" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>autodiff-custom-deriv-diagnostics</td></tr>
+<tr><td>3h 48m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042485477/job/70117487502" target="_blank" rel="noopener noreferrer">build</a></td><td>autodiff-dynamic-dispatch-tests</td></tr>
+<tr><td>3h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24043001989/job/70119247471" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>has-diff-type-info-constraint</td></tr>
+<tr><td>3h 35m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24043001974/job/70119273894" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>has-diff-type-info-constraint</td></tr>
+<tr><td>2h 25m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/24045823388/job/70128852945" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64)</a></td><td>ci-enable-asan-ubsan</td></tr>
 </table>
 
 
@@ -243,19 +243,19 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["20:45", "21:15", "21:30", "21:45", "22:00", "22:30", "22:45", "23:15", "23:45", "00:45", "01:30", "02:45", "03:45", "05:00", "05:45", "06:45", "07:30", "08:15", "08:45", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:45", "14:15", "14:45", "15:15", "15:45", "16:15", "16:45", "17:15", "18:00", "18:15", "18:45", "19:30", "19:45", "20:15", "20:45"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 7, 3, 12, 2, 6, 4, 4, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 2, 6, 0, 2, 6, 6, 7, 2, 4, 2, 2, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 3, 6, 0, 0, 7, 10, 15, 10, 9, 7, 3]};
-const allRunsInProgress = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 8, 5, 4, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 7, 3, 3, 6, 9, 4, 5, 17, 11, 10, 12, 17, 10, 9, 6];
-const allRunsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 2, 0, 1, 82, 54, 35, 30, 33, 27, 26, 20];
-const allJobsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 3, 0, 2, 82, 79, 51, 31, 36, 28, 26, 20];
-const allJobsRunning = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 16, 20, 7, 2, 4, 1, 1, 1, 1, 1, 1, 1, 1, 18, 5, 4, 18, 24, 7, 13, 35, 39, 42, 37, 43, 30, 22, 7];
+const allTimestamps = ["21:30", "21:45", "22:00", "22:30", "22:45", "23:15", "23:45", "00:45", "01:30", "02:45", "03:45", "05:00", "05:45", "06:45", "07:30", "08:15", "08:45", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:45", "14:15", "14:45", "15:15", "15:45", "16:15", "16:45", "17:15", "18:00", "18:15", "18:45", "19:30", "19:45", "20:15", "20:45", "21:15"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 7, 3, 12, 2, 6, 4, 4, 0, 0], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 2, 6, 0, 2, 6, 6, 7, 2, 4, 2, 2, 0, 0], "Windows GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 3, 6, 0, 0, 7, 10, 15, 10, 9, 7, 3, 1]};
+const allRunsInProgress = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 8, 5, 4, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 7, 3, 3, 6, 9, 4, 5, 17, 11, 10, 12, 17, 10, 9, 6, 5];
+const allRunsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 2, 0, 1, 82, 54, 35, 30, 33, 27, 26, 20, 17];
+const allJobsQueued = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 3, 0, 2, 82, 79, 51, 31, 36, 28, 26, 20, 17];
+const allJobsRunning = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 16, 20, 7, 2, 4, 1, 1, 1, 1, 1, 1, 1, 1, 18, 5, 4, 18, 24, 7, 13, 35, 39, 42, 37, 43, 30, 22, 7, 5];
 
-const gpuRegionData = {"us-central1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 1, 0, 3, 4, 8, 6, 6, 5, 4, 1], "us-east1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 2, 0, 3, 4, 8, 6, 6, 5, 4, 1], "us-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 3, 1, 1, 4, 8, 6, 4, 5, 3, 1]};
+const gpuRegionData = {"us-central1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 2, 1, 0, 3, 4, 8, 6, 6, 5, 4, 1, 1], "us-east1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 2, 0, 3, 4, 8, 6, 6, 5, 4, 1, 0], "us-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 3, 1, 1, 4, 8, 6, 4, 5, 3, 1, 0]};
 const gpuQuotaLimit = 24;
 const gpuRegionColors = {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"};
 
-const mqSuccessData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-const mqFailureData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const mqSuccessData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
+const mqFailureData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const hasMqSnapshots = true;
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
@@ -419,23 +419,23 @@ buildCharts(24);
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
 <h3>Windows Build (GCP) (0/0 busy)</h3>
 <p style="color:#6c757d">No runners online (auto-scaling group scales to zero when idle).</p>
-<h3>Windows GPU (GCP) (3/3 busy)</h3>
+<h3>Windows GPU (GCP) (1/1 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-test-5780a614</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24047794188/job/70139223224" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (add-bf16-arithmetic)</a></td></tr>
-<tr><td>win-test-c6eba92b</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24048678180/job/70141861098" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang-rhi (fix/spec-const-propagation)</a></td></tr>
 <tr><td>win-test-d625b4c1</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24048678180/job/70141861096" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu / test-slang (fix/spec-const-propagation)</a></td></tr>
 </table>
 
 <h3>Other Runners</h3>
 <table><tr><th>Runner</th><th>Group</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24047003746/job/70132786711" target="_blank" rel="noopener noreferrer">build (fix-9912-circular-conformance-diagnostic)</a></td></tr>
-<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24041671962/job/70114711208" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (autodiff-loop-controlflow-diagnostics)</a></td></tr>
-<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24046637504/job/70131574522" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (autodiff-generic-constraints-functional)</a></td></tr>
+<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042221354/job/70116560107" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (autodiff-core-diagnostics)</a></td></tr>
+<tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24047003745/job/70132787280" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (fix-9912-circular-conformance-diagnostic)</a></td></tr>
+<tr><td>SlangWin4-2</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/24042485501/job/70117487029" target="_blank" rel="noopener noreferrer">build (windows, release, cl, x86_64) (autodiff-dynamic-dispatch-tests)</a></td></tr>
 </table>
 
 
 <h2>Recent CI Failures</h2>
 <table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/24048678180" target="_blank" rel="noopener noreferrer">fix/spec-const-propagation</a></td><td>aidanfnv</td><td>2026-04-06 21:19</td></tr>
+<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/24047794188" target="_blank" rel="noopener noreferrer">add-bf16-arithmetic</a></td><td>jvepsalainen-nv</td><td>2026-04-06 20:59</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/24047280279" target="_blank" rel="noopener noreferrer">fix/entry-point-interface-param-10262-10266</a></td><td>jvepsalainen-nv</td><td>2026-04-06 20:35</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/24046637573" target="_blank" rel="noopener noreferrer">autodiff-generic-constraints-functional</a></td><td>jvepsalainen-nv</td><td>2026-04-06 20:19</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/24042485625" target="_blank" rel="noopener noreferrer">autodiff-dynamic-dispatch-tests</a></td><td>jvepsalainen-nv</td><td>2026-04-06 19:41</td></tr>
