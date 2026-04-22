@@ -5,7 +5,8 @@
       "severity": "info",
       "title": "Windows debug build fixed (proxy DLL link race)",
       "body": "PR #10684 (remove slang-binaries) exposed a latent link race between slang-proxy (slang.dll) and slang-dispatcher (slang.exe) — both have OUTPUT_NAME slang, causing .ilk and .pdb collisions when Ninja parallelizes the link steps. Fixed by PR #10698 (/INCREMENTAL:NO) and PR #10702 (PDB_NAME slang-proxy). Sccache populate workflow should also recover.",
-      "author": "jkiviluoto-nv"
+      "author": "jkiviluoto-nv",
+      "visible": false
     },
     {
       "date": "2026-03-25",
