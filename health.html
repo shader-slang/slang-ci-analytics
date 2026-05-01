@@ -33,34 +33,34 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-05-01 01:10 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-05-01 01:13 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">125</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">120</div><div class="label">Jobs Queued</div></div>
   <div class="stat-card"><div class="value">21</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">26</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">3</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">25</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">2</div><div class="label">Runs In Progress</div></div>
 </div>
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
 <tr><td>Linux SM80Plus GPU (GCP)</td><td>1</td><td>0</td><td>(org-level)</td></tr>
 <tr><td>Windows</td><td>0</td><td>1</td><td>2 idle / 3 total</td></tr>
-<tr><td>Linux (GH)</td><td>23</td><td>5</td><td>(cloud)</td></tr>
-<tr><td>Linux ARM64 (GH)</td><td>2</td><td>0</td><td>(cloud)</td></tr>
-<tr><td>macOS (GH)</td><td>46</td><td>5</td><td>(cloud)</td></tr>
-<tr><td>Windows (GH)</td><td>53</td><td>10</td><td>(cloud)</td></tr>
+<tr><td>Linux (GH)</td><td>21</td><td>4</td><td>(cloud)</td></tr>
+<tr><td>Linux ARM64 (GH)</td><td>1</td><td>1</td><td>(cloud)</td></tr>
+<tr><td>macOS (GH)</td><td>45</td><td>4</td><td>(cloud)</td></tr>
+<tr><td>Windows (GH)</td><td>52</td><td>11</td><td>(cloud)</td></tr>
 </table>
 
 <h3>Longest Waiting Jobs</h3>
 <table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>2h 33m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25192306109/job/73866285439" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64-sm80 / test-slang</a></td><td>fix/legalize-defuse-zero-init</td></tr>
-<tr><td>2h 14m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344707" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_EMBED_CORE_MODULE_SOURCE)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
-<tr><td>2h 14m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344712" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_ENABLE_DXIL)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
-<tr><td>2h 14m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344719" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_ENABLE_PCH)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
-<tr><td>2h 14m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344720" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_STANDARD_MODULE_DEVELOP_BUILD)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
+<tr><td>2h 36m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25192306109/job/73866285439" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64-sm80 / test-slang</a></td><td>fix/legalize-defuse-zero-init</td></tr>
+<tr><td>2h 16m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344707" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_EMBED_CORE_MODULE_SOURCE)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
+<tr><td>2h 16m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344712" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_ENABLE_DXIL)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
+<tr><td>2h 16m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344719" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_ENABLE_PCH)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
+<tr><td>2h 16m</td><td><a href="https://github.com/shader-slang/slang/actions/runs/25193368173/job/73868344720" target="_blank" rel="noopener noreferrer">windows-aarch64-release / build (SLANG_STANDARD_MODULE_DEVELOP_BUILD)</a></td><td>ci/cover-cmake-option-depth-1</td></tr>
 </table>
 
 
@@ -274,17 +274,17 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["01:00", "01:45", "03:15", "04:30", "05:45", "07:00", "08:00", "09:00", "09:45", "10:30", "11:15", "12:00", "12:45", "13:30", "14:30", "15:15", "16:00", "16:45", "17:30", "18:15", "18:45", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "01:00"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 1, 0, 2, 6, 0, 3, 7, 0, 2, 3, 7, 0, 0, 4, 2, 5, 0, 4, 3, 5, 6, 0, 3, 7, 3, 3, 1, 0], "Linux SM80Plus GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0], "Windows Build (GCP)": [4, 1, 2, 0, 0, 0, 6, 3, 0, 4, 4, 0, 2, 2, 7, 2, 1, 4, 3, 5, 4, 6, 1, 0, 2, 2, 3, 2, 0], "Windows GPU (GCP)": [1, 2, 2, 3, 9, 5, 4, 7, 4, 0, 9, 9, 1, 1, 8, 2, 5, 0, 2, 4, 8, 11, 6, 2, 1, 4, 7, 7, 0]};
-const allRunsInProgress = [8, 5, 12, 6, 9, 8, 10, 11, 8, 4, 11, 10, 8, 6, 12, 9, 6, 3, 13, 8, 17, 10, 9, 6, 6, 8, 8, 11, 3];
-const allRunsQueued = [11, 8, 8, 14, 18, 10, 19, 22, 13, 19, 20, 24, 20, 15, 17, 10, 4, 2, 15, 15, 16, 11, 7, 3, 2, 4, 11, 7, 26];
-const allJobsQueued = [27, 24, 24, 33, 34, 26, 36, 43, 25, 36, 34, 38, 32, 17, 34, 10, 7, 2, 17, 34, 22, 16, 7, 4, 2, 4, 12, 9, 125];
-const allJobsRunning = [18, 12, 21, 19, 19, 9, 36, 38, 8, 14, 33, 36, 17, 6, 35, 22, 17, 21, 32, 35, 36, 46, 10, 11, 16, 26, 37, 24, 21];
+const allTimestamps = ["01:45", "03:15", "04:30", "05:45", "07:00", "08:00", "09:00", "09:45", "10:30", "11:15", "12:00", "12:45", "13:30", "14:30", "15:15", "16:00", "16:45", "17:30", "18:15", "18:45", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "01:00"];
+const allRunnerData = {"Linux GPU (GCP)": [1, 0, 2, 6, 0, 3, 7, 0, 2, 3, 7, 0, 0, 4, 2, 5, 0, 4, 3, 5, 6, 0, 3, 7, 3, 3, 1, 0], "Linux SM80Plus GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0], "Windows Build (GCP)": [1, 2, 0, 0, 0, 6, 3, 0, 4, 4, 0, 2, 2, 7, 2, 1, 4, 3, 5, 4, 6, 1, 0, 2, 2, 3, 2, 0], "Windows GPU (GCP)": [2, 2, 3, 9, 5, 4, 7, 4, 0, 9, 9, 1, 1, 8, 2, 5, 0, 2, 4, 8, 11, 6, 2, 1, 4, 7, 7, 0]};
+const allRunsInProgress = [5, 12, 6, 9, 8, 10, 11, 8, 4, 11, 10, 8, 6, 12, 9, 6, 3, 13, 8, 17, 10, 9, 6, 6, 8, 8, 11, 2];
+const allRunsQueued = [8, 8, 14, 18, 10, 19, 22, 13, 19, 20, 24, 20, 15, 17, 10, 4, 2, 15, 15, 16, 11, 7, 3, 2, 4, 11, 7, 25];
+const allJobsQueued = [24, 24, 33, 34, 26, 36, 43, 25, 36, 34, 38, 32, 17, 34, 10, 7, 2, 17, 34, 22, 16, 7, 4, 2, 4, 12, 9, 120];
+const allJobsRunning = [12, 21, 19, 19, 9, 36, 38, 8, 14, 33, 36, 17, 6, 35, 22, 17, 21, 32, 35, 36, 46, 10, 11, 16, 26, 37, 24, 21];
 
-const gpuQuotaCharts = [{"id": "gpuQuota", "metric": "NVIDIA_T4_GPUS", "name": "T4", "regionData": {"us-central1": [0, 1, 0, 2, 6, 2, 2, 5, 1, 1, 5, 5, 0, 0, 5, 1, 4, 0, 3, 3, 5, 5, 1, 2, 3, 3, 3, 3, 0], "us-east1": [1, 1, 0, 2, 4, 2, 2, 6, 2, 1, 4, 7, 1, 1, 5, 2, 5, 0, 3, 4, 5, 6, 2, 2, 3, 3, 4, 2, 0], "us-west1": [0, 1, 2, 2, 5, 1, 4, 6, 1, 1, 5, 4, 0, 0, 4, 1, 4, 0, 2, 3, 4, 6, 3, 2, 2, 2, 4, 3, 0]}, "limit": 24, "regionColors": {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"}}, {"id": "gpuQuota_NVIDIA_L4_GPUS", "metric": "NVIDIA_L4_GPUS", "name": "L4", "regionData": {"europe-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-central1": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0], "us-east1": [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "us-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], "us-west4": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "limit": 80, "regionColors": {"europe-west1": "#0d6efd", "us-central1": "#fd7e14", "us-east1": "#28a745", "us-west1": "#dc3545", "us-west4": "#6f42c1"}}];
+const gpuQuotaCharts = [{"id": "gpuQuota", "metric": "NVIDIA_T4_GPUS", "name": "T4", "regionData": {"us-central1": [1, 0, 2, 6, 2, 2, 5, 1, 1, 5, 5, 0, 0, 5, 1, 4, 0, 3, 3, 5, 5, 1, 2, 3, 3, 3, 3, 0], "us-east1": [1, 0, 2, 4, 2, 2, 6, 2, 1, 4, 7, 1, 1, 5, 2, 5, 0, 3, 4, 5, 6, 2, 2, 3, 3, 4, 2, 0], "us-west1": [1, 2, 2, 5, 1, 4, 6, 1, 1, 5, 4, 0, 0, 4, 1, 4, 0, 2, 3, 4, 6, 3, 2, 2, 2, 4, 3, 0]}, "limit": 24, "regionColors": {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"}}, {"id": "gpuQuota_NVIDIA_L4_GPUS", "metric": "NVIDIA_L4_GPUS", "name": "L4", "regionData": {"europe-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-central1": [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0], "us-east1": [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], "us-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], "us-west4": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "limit": 80, "regionColors": {"europe-west1": "#0d6efd", "us-central1": "#fd7e14", "us-east1": "#28a745", "us-west1": "#dc3545", "us-west4": "#6f42c1"}}];
 
-const mqSuccessData = [12, 13, 13, 13, 12, 11, 10, 9, 11, 11, 10, 11, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 13, 12, 13, 13, 13, 13, 11];
-const mqFailureData = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 1, 0, 1, 1, 3, 4, 5, 5, 8, 8, 9, 10, 10, 11, 11, 11];
+const mqSuccessData = [13, 13, 13, 12, 11, 10, 9, 11, 11, 10, 11, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 13, 12, 13, 13, 13, 13, 11];
+const mqFailureData = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0, 1, 0, 1, 1, 3, 4, 5, 5, 8, 8, 9, 10, 10, 11, 11, 11];
 const hasMqSnapshots = true;
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Linux SM80Plus GPU (GCP)": "#6f42c1", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
