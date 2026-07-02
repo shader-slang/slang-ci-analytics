@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static analytics site (health.html, month_*.html, etc.) to
+# GitHub Pages. This replaces the built-in "legacy" branch deployer.
+#
+# Why a custom workflow: the analytics data is pushed to `main` every 15
+# minutes by shader-slang/slang's ci-health.yml. Under the legacy deployer
+# each push started a Pages deployment with no concurrency control, so
+# deployments piled up on the `github-pages` environment faster than they
+# drained — they sat in `deployment_queued` and either timed out after
+# ~10 minutes or cancelled one another, freezing the published site. The
+# `concurrency` block below serializes deployments to a single group and
+# cancels any in-flight deploy when a newer one arrives, so the most recent
+# content always wins instead of the environment deadlocking.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Serialize Pages deployments: a newer push cancels an in-flight deploy
+# rather than queuing behind it. `cancel-in-progress: true` is what breaks
+# the pile-up that wedged the legacy deployer.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
