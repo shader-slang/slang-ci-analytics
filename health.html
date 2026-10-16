@@ -33,39 +33,29 @@
 <div class="container">
 
 <h1>CI System Health</h1>
-<p style="color:#6c757d">Last updated: 2026-10-16 22:17 UTC</p>
+<p style="color:#6c757d">Last updated: 2026-10-16 22:40 UTC</p>
 
 <h2>Queue Status</h2>
 
 <div>
-  <div class="stat-card"><div class="value">4</div><div class="label">Jobs Queued</div></div>
-  <div class="stat-card"><div class="value">44</div><div class="label">Jobs Running</div></div>
-  <div class="stat-card"><div class="value">4</div><div class="label">Runs Queued</div></div>
-  <div class="stat-card"><div class="value">4</div><div class="label">Runs In Progress</div></div>
+  <div class="stat-card"><div class="value">0</div><div class="label">Jobs Queued</div></div>
+  <div class="stat-card"><div class="value">38</div><div class="label">Jobs Running</div></div>
+  <div class="stat-card"><div class="value">2</div><div class="label">Runs Queued</div></div>
+  <div class="stat-card"><div class="value">6</div><div class="label">Runs In Progress</div></div>
 </div>
 
 
 <h3>Queue Depth by Runner Group</h3>
 <table><tr><th>Group</th><th>Queued</th><th>Running</th><th>Runners</th></tr>
 <tr><td>Linux SM80Plus GPU (GCP)</td><td>0</td><td>1</td><td>0 idle / 1 total</td></tr>
-<tr><td>Linux GPU (GCP)</td><td>0</td><td>2</td><td>0 idle / 2 total</td></tr>
-<tr><td>Linux Build (GCP)</td><td>0</td><td>1</td><td>0 idle / 1 total</td></tr>
-<tr><td>Windows GPU (GCP)</td><td>1</td><td>9</td><td>0 idle / 9 total</td></tr>
-<tr><td>Windows</td><td>0</td><td>1</td><td>2 idle / 3 total</td></tr>
-<tr><td>Windows Build (GCP)</td><td>3</td><td>1</td><td>0 idle / 1 total</td></tr>
-<tr><td>Linux (GH)</td><td>0</td><td>8</td><td>(cloud)</td></tr>
-<tr><td>Linux ARM64 (GH)</td><td>0</td><td>5</td><td>(cloud)</td></tr>
-<tr><td>macOS (GH)</td><td>0</td><td>5</td><td>(cloud)</td></tr>
-<tr><td>Windows (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
-<tr><td>Other</td><td>0</td><td>9</td><td>(cloud)</td></tr>
-</table>
-
-<h3>Longest Waiting Jobs</h3>
-<table><tr><th>Wait</th><th>Job</th><th>Branch</th></tr>
-<tr><td>4m 09s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117220058286" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-cuda / test-slang</a></td><td>fix/issue-13273</td></tr>
-<tr><td>2m 21s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117220656857" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build</a></td><td>reflection-int-matrix</td></tr>
-<tr><td>2m 21s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117220656990" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu / build</a></td><td>reflection-int-matrix</td></tr>
-<tr><td>2m 18s</td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117220668249" target="_blank" rel="noopener noreferrer">build-windows-release-cl-x86_64-gpu-falcor / build</a></td><td>reflection-int-matrix</td></tr>
+<tr><td>Linux GPU (GCP)</td><td>0</td><td>4</td><td>0 idle / 4 total</td></tr>
+<tr><td>Windows GPU (GCP)</td><td>0</td><td>14</td><td>0 idle / 14 total</td></tr>
+<tr><td>Windows Build (GCP)</td><td>0</td><td>2</td><td>0 idle / 2 total</td></tr>
+<tr><td>Linux (GH)</td><td>0</td><td>4</td><td>(cloud)</td></tr>
+<tr><td>Linux ARM64 (GH)</td><td>0</td><td>2</td><td>(cloud)</td></tr>
+<tr><td>macOS (GH)</td><td>0</td><td>6</td><td>(cloud)</td></tr>
+<tr><td>Windows (GH)</td><td>0</td><td>1</td><td>(cloud)</td></tr>
+<tr><td>Other</td><td>0</td><td>4</td><td>(cloud)</td></tr>
 </table>
 
 
@@ -232,38 +222,34 @@
 
 <div style="border-left:4px solid #198754;background:#d1e7dd;padding:12px 18px;margin-bottom:14px;border-radius:4px">
   <span style="background:#198754;color:white;padding:2px 8px;border-radius:3px;font-size:0.8em">OK</span>
-  <strong style="margin-left:8px">25 / 60 hosted runners in use (42%)</strong>
-  &nbsp;&nbsp;<span style="color:#6c757d">queued jobs: 1</span>
+  <strong style="margin-left:8px">15 / 60 hosted runners in use (25%)</strong>
+  &nbsp;&nbsp;<span style="color:#6c757d">queued jobs: 0</span>
 </div>
 <h3>In Use by Workflow</h3>
 <table><tr><th>Workflow</th><th>Jobs</th></tr>
-<tr><td>CI</td><td>24</td></tr>
+<tr><td>CI</td><td>7</td></tr>
+<tr><td>Populate sccache</td><td>7</td></tr>
 <tr><td>CI Health</td><td>1</td></tr>
 </table>
 <h3>In Use by Label</h3>
 <table><tr><th>Hosted Label</th><th>Jobs</th></tr>
-<tr><td>ubuntu-22.04</td><td>7</td></tr>
-<tr><td>macos-latest</td><td>5</td></tr>
-<tr><td>ubuntu-24.04-arm</td><td>5</td></tr>
-<tr><td>windows-11-vs2026-arm</td><td>5</td></tr>
+<tr><td>macos-latest</td><td>6</td></tr>
+<tr><td>ubuntu-22.04</td><td>3</td></tr>
+<tr><td>windows-11-vs2026-arm</td><td>3</td></tr>
+<tr><td>ubuntu-24.04-arm</td><td>1</td></tr>
 <tr><td>ubuntu-latest</td><td>1</td></tr>
 <tr><td>windows-2022</td><td>1</td></tr>
-<tr><td>windows-latest</td><td>1</td></tr>
-</table>
-<h3>Queued by Workflow</h3>
-<table><tr><th>Workflow</th><th>Jobs</th></tr>
-<tr><td>PR Maintenance</td><td>1</td></tr>
 </table>
 
 
 <h2>Merge Queue</h2>
 
 <div>
-  <div class="stat-card"><div class="value">8</div><div class="label">Passed (24h)</div></div>
+  <div class="stat-card"><div class="value">9</div><div class="label">Passed (24h)</div></div>
   <div class="stat-card"><div class="value" style="color:#dc3545">1</div><div class="label">Failed (24h)</div></div>
   <div class="stat-card"><div class="value">0</div><div class="label">Cancelled (24h)</div></div>
-  <div class="stat-card"><div class="value">1</div><div class="label">In Progress</div></div>
-  <div class="stat-card"><div class="value">11%</div><div class="label">Failure Rate</div></div>
+  <div class="stat-card"><div class="value">0</div><div class="label">In Progress</div></div>
+  <div class="stat-card"><div class="value">10%</div><div class="label">Failure Rate</div></div>
 </div>
 
 <h3>Recent Merge Queue Failures</h3>
@@ -472,19 +458,19 @@ function copyChart(canvasId, bg) {
 }
 
 // All snapshot data
-const allTimestamps = ["22:15", "22:30", "22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:00", "01:30", "01:45", "02:15", "02:45", "03:15", "03:45", "04:15", "04:45", "05:15", "05:30", "05:45", "06:30", "06:45", "07:15", "07:30", "07:45", "08:15", "08:45", "09:15", "09:30", "09:45", "10:15", "10:30", "10:45", "11:15", "11:30", "11:45", "12:15", "12:45", "13:15", "13:30", "13:45", "14:15", "14:30", "14:45", "15:15", "15:30", "15:45", "16:15", "16:30", "16:45", "17:15", "17:30", "17:45", "18:15", "18:45", "19:00", "19:15", "19:30", "19:45", "20:15", "20:30", "20:45", "21:15", "21:30", "21:45", "22:15"];
-const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 7, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 3, 0, 7, 3, 2, 0, 4, 1, 0, 0, 3, 0, 1, 1, 1, 5, 2], "Linux SM80Plus GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1], "Windows Build (GCP)": [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 3, 3, 1, 3, 2, 4, 4, 2, 2, 0, 3, 0, 2, 1, 0, 3, 1, 1, 2, 2, 1], "Windows GPU (GCP)": [1, 8, 4, 0, 0, 0, 0, 11, 3, 6, 4, 0, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 5, 5, 0, 12, 14, 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 1, 0, 0, 0, 0, 3, 8, 9, 14, 12, 8, 12, 12, 8, 6, 9, 7, 6, 5, 4, 7, 13, 9, 12, 9]};
-const allRunsInProgress = [3, 3, 1, 1, 1, 1, 1, 4, 3, 2, 3, 6, 6, 5, 3, 2, 2, 2, 2, 2, 1, 3, 3, 2, 1, 1, 2, 3, 5, 4, 2, 2, 2, 5, 2, 2, 1, 1, 1, 2, 2, 3, 1, 2, 1, 7, 4, 1, 4, 4, 11, 5, 6, 5, 6, 5, 3, 4, 4, 2, 5, 3, 4, 4, 5, 4];
-const allRunsQueued = [4, 3, 3, 3, 3, 3, 3, 2, 3, 2, 2, 2, 3, 3, 3, 2, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 3, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 3, 6, 5, 7, 6, 6, 10, 7, 3, 4, 3, 2, 2, 3, 3, 3, 4, 6, 5, 4];
-const allJobsQueued = [3, 1, 1, 1, 1, 1, 1, 0, 3, 0, 0, 0, 7, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3, 2, 7, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 1, 0, 0, 0, 0, 0, 9, 26, 9, 12, 29, 18, 37, 16, 3, 7, 5, 0, 0, 5, 2, 5, 15, 14, 16, 4];
-const allJobsRunning = [19, 16, 6, 1, 1, 1, 1, 23, 20, 16, 12, 8, 21, 9, 3, 2, 2, 2, 2, 2, 1, 3, 3, 15, 14, 17, 16, 37, 15, 8, 8, 2, 2, 4, 2, 2, 1, 1, 11, 16, 13, 4, 1, 7, 1, 19, 30, 46, 41, 51, 61, 48, 61, 33, 26, 35, 23, 19, 14, 16, 29, 25, 45, 54, 56, 44];
+const allTimestamps = ["22:45", "23:00", "23:15", "23:30", "23:45", "00:45", "01:00", "01:30", "01:45", "02:15", "02:45", "03:15", "03:45", "04:15", "04:45", "05:15", "05:30", "05:45", "06:30", "06:45", "07:15", "07:30", "07:45", "08:15", "08:45", "09:15", "09:30", "09:45", "10:15", "10:30", "10:45", "11:15", "11:30", "11:45", "12:15", "12:45", "13:15", "13:30", "13:45", "14:15", "14:30", "14:45", "15:15", "15:30", "15:45", "16:15", "16:30", "16:45", "17:15", "17:30", "17:45", "18:15", "18:45", "19:00", "19:15", "19:30", "19:45", "20:15", "20:30", "20:45", "21:15", "21:30", "21:45", "22:15", "22:30"];
+const allRunnerData = {"Linux GPU (GCP)": [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 0, 7, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 3, 0, 7, 3, 2, 0, 4, 1, 0, 0, 3, 0, 1, 1, 1, 5, 2, 4], "Linux SM80Plus GPU (GCP)": [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1], "Windows Build (GCP)": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 3, 3, 1, 3, 2, 4, 4, 2, 2, 0, 3, 0, 2, 1, 0, 3, 1, 1, 2, 2, 1, 2], "Windows GPU (GCP)": [4, 0, 0, 0, 0, 11, 3, 6, 4, 0, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 5, 5, 0, 12, 14, 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 1, 0, 0, 0, 0, 3, 8, 9, 14, 12, 8, 12, 12, 8, 6, 9, 7, 6, 5, 4, 7, 13, 9, 12, 9, 14]};
+const allRunsInProgress = [1, 1, 1, 1, 1, 4, 3, 2, 3, 6, 6, 5, 3, 2, 2, 2, 2, 2, 1, 3, 3, 2, 1, 1, 2, 3, 5, 4, 2, 2, 2, 5, 2, 2, 1, 1, 1, 2, 2, 3, 1, 2, 1, 7, 4, 1, 4, 4, 11, 5, 6, 5, 6, 5, 3, 4, 4, 2, 5, 3, 4, 4, 5, 4, 6];
+const allRunsQueued = [3, 3, 3, 3, 3, 2, 3, 2, 2, 2, 3, 3, 3, 2, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 3, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 3, 6, 5, 7, 6, 6, 10, 7, 3, 4, 3, 2, 2, 3, 3, 3, 4, 6, 5, 4, 2];
+const allJobsQueued = [1, 1, 1, 1, 1, 0, 3, 0, 0, 0, 7, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 3, 2, 7, 1, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 1, 0, 0, 0, 0, 0, 9, 26, 9, 12, 29, 18, 37, 16, 3, 7, 5, 0, 0, 5, 2, 5, 15, 14, 16, 4, 0];
+const allJobsRunning = [6, 1, 1, 1, 1, 23, 20, 16, 12, 8, 21, 9, 3, 2, 2, 2, 2, 2, 1, 3, 3, 15, 14, 17, 16, 37, 15, 8, 8, 2, 2, 4, 2, 2, 1, 1, 11, 16, 13, 4, 1, 7, 1, 19, 30, 46, 41, 51, 61, 48, 61, 33, 26, 35, 23, 19, 14, 16, 29, 25, 45, 54, 56, 44, 38];
 
-const gpuQuotaCharts = [{"id": "gpuQuota", "metric": "NVIDIA_T4_GPUS", "name": "T4", "regionData": {"us-central1": [1, 3, 1, 0, 0, 0, 0, 6, 3, 4, 4, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 5, 0, 8, 8, 4, 1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 0, 0, 0, 0, 5, 8, 5, 7, 6, 7, 8, 6, 2, 6, 5, 3, 3, 4, 0, 4, 7, 7, 8, 5], "us-east1": [1, 4, 2, 0, 0, 0, 0, 5, 0, 2, 0, 0, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 5, 0, 8, 8, 2, 1, 0, 0, 0, 0, 0, 0, 0, 2, 3, 3, 0, 0, 0, 0, 0, 3, 7, 6, 7, 7, 7, 8, 5, 5, 5, 6, 2, 2, 4, 1, 5, 6, 3, 6, 5], "us-west1": [1, 1, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 6, 4, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 7, 5, 3, 6, 5, 6, 1, 5, 4, 2, 1, 4, 3, 4, 7, 7, 8, 2]}, "limit": 24, "regionColors": {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"}}, {"id": "gpuQuota_NVIDIA_L4_GPUS", "metric": "NVIDIA_L4_GPUS", "name": "L4", "regionData": {"europe-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-central1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0], "us-east1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-west1": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1], "us-west4": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "limit": 80, "regionColors": {"europe-west1": "#0d6efd", "us-central1": "#fd7e14", "us-east1": "#28a745", "us-west1": "#dc3545", "us-west4": "#6f42c1"}}];
+const gpuQuotaCharts = [{"id": "gpuQuota", "metric": "NVIDIA_T4_GPUS", "name": "T4", "regionData": {"us-central1": [1, 0, 0, 0, 0, 6, 3, 4, 4, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 5, 0, 8, 8, 4, 1, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 1, 0, 0, 0, 0, 5, 8, 5, 7, 6, 7, 8, 6, 2, 6, 5, 3, 3, 4, 0, 4, 7, 7, 8, 5, 6], "us-east1": [2, 0, 0, 0, 0, 5, 0, 2, 0, 0, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 5, 0, 8, 8, 2, 1, 0, 0, 0, 0, 0, 0, 0, 2, 3, 3, 0, 0, 0, 0, 0, 3, 7, 6, 7, 7, 7, 8, 5, 5, 5, 6, 2, 2, 4, 1, 5, 6, 3, 6, 5, 5], "us-west1": [1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 6, 4, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 7, 5, 3, 6, 5, 6, 1, 5, 4, 2, 1, 4, 3, 4, 7, 7, 8, 2, 7]}, "limit": 24, "regionColors": {"us-central1": "#0d6efd", "us-east1": "#fd7e14", "us-west1": "#28a745"}}, {"id": "gpuQuota_NVIDIA_L4_GPUS", "metric": "NVIDIA_L4_GPUS", "name": "L4", "regionData": {"europe-west1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-central1": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1], "us-east1": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "us-west1": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0], "us-west4": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, "limit": 80, "regionColors": {"europe-west1": "#0d6efd", "us-central1": "#fd7e14", "us-east1": "#28a745", "us-west1": "#dc3545", "us-west4": "#6f42c1"}}];
 
-const hostedRunnerChart = {"cap": 60, "labels": ["ubuntu-22.04", "ubuntu-22.04-arm", "ubuntu-24.04", "ubuntu-24.04-arm", "ubuntu-latest", "macos-latest", "windows-11-vs2026-arm", "windows-2022", "windows-latest"], "label_series": {"ubuntu-22.04": [0, 0, 0, 0, 0, 0, 0, 2, 4, 1, 2, 4, 4, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 0, 4, 5, 2, 1, 5, 7, 7, 6, 4, 1, 0, 0, 2, 2, 0, 6, 5, 5, 8, 8, 7], "ubuntu-22.04-arm": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "ubuntu-24.04": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "ubuntu-24.04-arm": [2, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 2, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 3, 3, 5], "ubuntu-latest": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 8, 1, 1, 1, 2, 2, 1, 2, 2, 5, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 5, 6, 1, 2, 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "macos-latest": [3, 3, 0, 0, 0, 0, 0, 3, 3, 1, 2, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 2, 4, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 3, 2, 0, 2, 5, 8, 5, 6, 7, 4, 11, 2, 3, 4, 5, 2, 2, 2, 4, 4, 8, 11, 7, 5], "windows-11-vs2026-arm": [2, 2, 1, 0, 0, 0, 0, 3, 3, 2, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 5, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 2, 4, 7, 6, 7, 10, 8, 11, 4, 2, 4, 3, 2, 2, 2, 3, 3, 7, 8, 7, 5], "windows-2022": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 2, 1, 1], "windows-latest": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1]}, "queued_series": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], "total_series": [8, 6, 2, 1, 1, 1, 1, 9, 15, 5, 6, 7, 12, 5, 2, 2, 2, 1, 1, 1, 1, 2, 2, 7, 15, 8, 12, 12, 5, 4, 6, 2, 2, 5, 2, 3, 1, 1, 5, 9, 8, 3, 7, 6, 1, 12, 19, 28, 15, 27, 33, 22, 35, 13, 11, 13, 9, 8, 7, 5, 17, 13, 21, 34, 29, 25], "palette": {"ubuntu-22.04": "#0d6efd", "ubuntu-22.04-arm": "#5599fd", "ubuntu-24.04": "#86b6fe", "ubuntu-24.04-arm": "#aaccfe", "ubuntu-latest": "#c9dffe", "macos-latest": "#6f42c1", "windows-11-vs2026-arm": "#28a745", "windows-2022": "#68c17c", "windows-latest": "#93d3a2"}};
+const hostedRunnerChart = {"cap": 60, "labels": ["ubuntu-22.04", "ubuntu-22.04-arm", "ubuntu-24.04", "ubuntu-24.04-arm", "ubuntu-latest", "macos-latest", "windows-11-vs2026-arm", "windows-2022", "windows-latest"], "label_series": {"ubuntu-22.04": [0, 0, 0, 0, 0, 2, 4, 1, 2, 4, 4, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 2, 2, 0, 4, 5, 2, 1, 5, 7, 7, 6, 4, 1, 0, 0, 2, 2, 0, 6, 5, 5, 8, 8, 7, 3], "ubuntu-22.04-arm": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "ubuntu-24.04": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0], "ubuntu-24.04-arm": [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 2, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 3, 3, 5, 1], "ubuntu-latest": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 8, 1, 1, 1, 2, 2, 1, 2, 2, 5, 2, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 1, 5, 6, 1, 2, 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "macos-latest": [0, 0, 0, 0, 0, 3, 3, 1, 2, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 2, 4, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 3, 2, 0, 2, 5, 8, 5, 6, 7, 4, 11, 2, 3, 4, 5, 2, 2, 2, 4, 4, 8, 11, 7, 5, 6], "windows-11-vs2026-arm": [1, 0, 0, 0, 0, 3, 3, 2, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 5, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 2, 4, 7, 6, 7, 10, 8, 11, 4, 2, 4, 3, 2, 2, 2, 3, 3, 7, 8, 7, 5, 3], "windows-2022": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 2, 0, 0, 2, 1, 1, 1], "windows-latest": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 1, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0]}, "queued_series": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], "total_series": [2, 1, 1, 1, 1, 9, 15, 5, 6, 7, 12, 5, 2, 2, 2, 1, 1, 1, 1, 2, 2, 7, 15, 8, 12, 12, 5, 4, 6, 2, 2, 5, 2, 3, 1, 1, 5, 9, 8, 3, 7, 6, 1, 12, 19, 28, 15, 27, 33, 22, 35, 13, 11, 13, 9, 8, 7, 5, 17, 13, 21, 34, 29, 25, 15], "palette": {"ubuntu-22.04": "#0d6efd", "ubuntu-22.04-arm": "#5599fd", "ubuntu-24.04": "#86b6fe", "ubuntu-24.04-arm": "#aaccfe", "ubuntu-latest": "#c9dffe", "macos-latest": "#6f42c1", "windows-11-vs2026-arm": "#28a745", "windows-2022": "#68c17c", "windows-latest": "#93d3a2"}};
 
-const mqSuccessData = [5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8];
-const mqFailureData = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+const mqSuccessData = [5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 8, 9];
+const mqFailureData = [3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 const hasMqSnapshots = true;
 
 const runnerColors = {"Linux GPU (GCP)": "#0d6efd", "Linux SM80Plus GPU (GCP)": "#6f42c1", "Windows Build (GCP)": "#fd7e14", "Windows GPU (GCP)": "#28a745"};
@@ -755,38 +741,45 @@ buildCharts(24);
 
 
 <h2>Self-Hosted Runner Status</h2>
-<h3>Linux GPU (GCP) (2/2 busy)</h3>
+<h3>Linux GPU (GCP) (4/4 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>linux-test-4b25f183</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117218267897" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (fix/issue-13273)</a></td></tr>
-<tr><td>linux-test-77c79674</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117218409731" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slang (fix/issue-13273)</a></td></tr>
+<tr><td>linux-test-5e932f68</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226315057" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64-rhi / test-slang-rhi (reflection-int-matrix)</a></td></tr>
+<tr><td>linux-test-95372432</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117227329296" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64-rhi / test-slang-rhi (reflection-int-matrix)</a></td></tr>
+<tr><td>linux-test-9577f572</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117227329236" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64 / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>linux-test-a69aad98</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226315097" target="_blank" rel="noopener noreferrer">test-linux-debug-gcc-x86_64 / test-slang (reflection-int-matrix)</a></td></tr>
 </table>
 <h3>Linux SM80Plus GPU (GCP) (1/1 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>linux-sm80plus-b81c311f</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117218409468" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64-sm80 / test-slang (fix/issue-13273)</a></td></tr>
+<tr><td>linux-sm80plus-01c5f1c6</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117227329050" target="_blank" rel="noopener noreferrer">test-linux-release-gcc-x86_64-sm80 / test-slang (reflection-int-matrix)</a></td></tr>
 </table>
-<h3>Windows Build (GCP) (1/1 busy)</h3>
+<h3>Windows Build (GCP) (2/2 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-build-af4ff46f</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117215831872" target="_blank" rel="noopener noreferrer">build-windows-debug-cl-x86_64-gpu / build (fix/issue-13273)</a></td></tr>
+<tr><td>win-build-f66cda37</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38976652360/job/117227709893" target="_blank" rel="noopener noreferrer">build-windows-release / build (master)</a></td></tr>
+<tr><td>win-build-fca13908</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38976652360/job/117227709786" target="_blank" rel="noopener noreferrer">build-windows-debug / build (master)</a></td></tr>
 </table>
-<h3>Windows GPU (GCP) (9/9 busy)</h3>
+<h3>Windows GPU (GCP) (14/14 busy)</h3>
 <table><tr><th>Runner</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>win-test-0017af41</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38966493169/job/117200956307" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-vk / test-slang (gh-readonly-queue/master/pr-13608-8c81b8bdaf9dc95add2195c4d1102e202c2f25c5)</a></td></tr>
-<tr><td>win-test-03cb2145</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117220058184" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-vk / test-slang (fix/issue-13273)</a></td></tr>
-<tr><td>win-test-0e7bf3fa</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38970094937/job/117212146278" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-dx / test-slang (fix/resource-selection)</a></td></tr>
-<tr><td>win-test-3430d6bb</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117220058217" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-dx / test-slang (fix/issue-13273)</a></td></tr>
-<tr><td>win-test-3af24bed</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38970094937/job/117212146166" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-rhi / test-slang-rhi (fix/resource-selection)</a></td></tr>
-<tr><td>win-test-4a2d4809</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38970094937/job/117212146243" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-cuda / test-slang (fix/resource-selection)</a></td></tr>
+<tr><td>win-test-13377bf3</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117221524357" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-vk / test-slang (fix/issue-13273)</a></td></tr>
+<tr><td>win-test-1cbdbf38</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226079692" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-vk / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-2d85e34c</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226079782" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-dx / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-3329d9e1</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117224606205" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-cuda / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-54837887</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117224606208" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-dx / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-571d473f</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226079918" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-cuda / test-slang (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-64212c7d</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117221524432" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-rhi / test-slang-rhi (fix/issue-13273)</a></td></tr>
+<tr><td>win-test-6b1b2b71</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117224606139" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-vk / test-slang (reflection-int-matrix)</a></td></tr>
 <tr><td>win-test-72c2fdfa</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38936803952/job/117217681182" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-rhi / test-slang-rhi (fix/extern-constant-folding)</a></td></tr>
+<tr><td>win-test-79e77d17</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117221524426" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-cuda / test-slang (fix/issue-13273)</a></td></tr>
 <tr><td>win-test-7f7d0fed</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38970094937/job/117212146309" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-vk / test-slang (fix/resource-selection)</a></td></tr>
-<tr><td>win-test-c3b482c8</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117220058329" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-rhi / test-slang-rhi (fix/issue-13273)</a></td></tr>
+<tr><td>win-test-a531de8d</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117221524692" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-dx / test-slang (fix/issue-13273)</a></td></tr>
+<tr><td>win-test-cd32c59e</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117224605970" target="_blank" rel="noopener noreferrer">test-windows-release-cl-x86_64-gpu-rhi / test-slang-rhi (reflection-int-matrix)</a></td></tr>
+<tr><td>win-test-eea7788b</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38974345662/job/117226079880" target="_blank" rel="noopener noreferrer">test-windows-debug-cl-x86_64-gpu-rhi / test-slang-rhi (reflection-int-matrix)</a></td></tr>
 </table>
 
 <h3>Other Runners</h3>
 <table><tr><th>Runner</th><th>Group</th><th>Status</th><th>Current Job</th></tr>
-<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117220058362" target="_blank" rel="noopener noreferrer">test-compile-regression / Test (Compile Regression) (fix/issue-13273)</a></td></tr>
+<tr><td>SLANGWIN10X64-1</td><td>Windows</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 <tr><td>SLANGWIN4</td><td>Windows</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
 <tr><td>SLANGWIN5</td><td>Windows</td><td><span style="color:#28a745">IDLE</span></td><td></td></tr>
-<tr><td>linux-build-018ef2f0</td><td>Linux Build (GCP)</td><td><span style="color:#0d6efd">BUSY</span></td><td><a href="https://github.com/shader-slang/slang/actions/runs/38972499456/job/117215831685" target="_blank" rel="noopener noreferrer">sanitizer-linux-clang-x86_64 / sanitizer (fix/issue-13273)</a></td></tr>
 </table>
 
 
@@ -794,8 +787,6 @@ buildCharts(24);
 <table><tr><th>Branch</th><th>Actor</th><th>Time</th></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/38961862271" target="_blank" rel="noopener noreferrer">ci-slangpy-skipped-job-passes</a></td><td>jkwak-work</td><td>2026-10-16 21:52</td></tr>
 <tr><td><a href="https://github.com/shader-slang/slang/actions/runs/38950622362" target="_blank" rel="noopener noreferrer">codex/revert-pr-13537</a></td><td>jkiviluoto-nv</td><td>2026-10-16 20:43</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/38939779618" target="_blank" rel="noopener noreferrer">fix-hlsl-coopvec-groupshared-store-unroll</a></td><td>jkwak-work</td><td>2026-10-16 19:29</td></tr>
-<tr><td><a href="https://github.com/shader-slang/slang/actions/runs/38935954118" target="_blank" rel="noopener noreferrer">fix/resource-selection</a></td><td>pdeayton-nv</td><td>2026-10-16 19:21</td></tr>
 </table>
 
 
